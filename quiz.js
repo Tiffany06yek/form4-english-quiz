@@ -92,7 +92,7 @@
     errBox.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
-  form.addEventListener("submit", async function (e) {
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
     errBox.classList.remove("show");
     const name = (form.studentName.value || "").trim();
@@ -112,10 +112,12 @@
       showError("Please write your email in Part F.");
       return;
     }
+
     const words = wordCount(email);
     const key = unpackKey();
     const g = grade(answers, key);
     const payload = {
+      _id: "s_" + Date.now() + "_" + Math.random().toString(36).slice(2, 8),
       name: name,
       timeKL: nowKL(),
       timeISO: new Date().toISOString(),
@@ -128,28 +130,111 @@
     };
 
     submitBtn.disabled = true;
-    submitBtn.textContent = "Submitting…";
-    let saved = false;
-    let saveError = "";
-    try {
-      const res = await fetch(cfg.apiBase + "/" + cfg.resource, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
-      if (!res.ok) throw new Error("Save failed (" + res.status + ")");
-      saved = true;
-    } catch (err) {
-      saveError = err && err.message ? err.message : "Network error";
-    }
-
-    renderResults(payload, saved, saveError);
-    form.querySelector(".actions").style.display = "none";
+    const actions = form.querySelector(".actions");
+    if (actions) actions.style.display = "none";
     Array.from(form.elements).forEach(function (el) { el.disabled = true; });
+
+    // Show the score immediately. Save in the background so a slow store cannot block it.
+    renderResults(payload);
     results.scrollIntoView({ behavior: "smooth", block: "start" });
+    saveInBackground(payload);
   });
 
-  function renderResults(payload, saved, saveError) {
+  function fetchWithTimeout(url, options, timeoutMs, controller) {
+    const opts = options || {};
+    opts.signal = controller.signal;
+    return fetch(url, opts);
+  }
+
+  async function saveKeepjson(payload, controller) {
+    const k = cfg.keepjson;
+    const get = await fetchWithTimeout(k.binUrl, { method: "GET" }, cfg.saveTimeoutMs, controller);
+    if (!get.ok) throw new Error("Read failed (" + get.status + ")");
+    const data = await get.json();
+    const list = (data && Array.isArray(data.submissions)) ? data.submissions.slice() : [];
+    list.push(payload);
+    const put = await fetchWithTimeout(k.binUrl, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + k.writeKey
+      },
+      body: JSON.stringify({ submissions: list })
+    }, cfg.saveTimeoutMs, controller);
+    if (!put.ok) throw new Error("Save failed (" + put.status + ")");
+  }
+
+  async function saveWebhook(payload, controller) {
+    const res = await fetchWithTimeout(cfg.webhook.postUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    }, cfg.saveTimeoutMs, controller);
+    if (!res.ok) throw new Error("Backup save failed (" + res.status + ")");
+  }
+
+  async function saveBoth(payload) {
+    const controller = new AbortController();
+    const timer = setTimeout(function () { controller.abort(); }, cfg.saveTimeoutMs || 5000);
+    try {
+      const settled = await Promise.allSettled([
+        saveKeepjson(payload, controller),
+        saveWebhook(payload, controller)
+      ]);
+      const primary = settled[0].status === "fulfilled";
+      const backup = settled[1].status === "fulfilled";
+      let error = "";
+      if (!primary && !backup) {
+        const reason = settled[0].reason || settled[1].reason;
+        if (reason && reason.name === "AbortError") error = "Save timed out";
+        else error = (reason && reason.message) || "Save failed";
+      }
+      return { ok: primary || backup, primary: primary, backup: backup, error: error };
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
+  function setSaveStatus(kind, html) {
+    const el = document.getElementById("saveStatus");
+    if (!el) return;
+    el.className = kind === "ok" ? "ok-msg" : kind === "saving" ? "saving-msg" : "warn-msg";
+    el.innerHTML = html;
+  }
+
+  async function saveInBackground(payload) {
+    setSaveStatus("saving", "Saving your answers for your teacher…");
+    const outcome = await saveBoth(payload);
+    const summary = buildSummary(payload);
+    if (outcome.ok) {
+      setSaveStatus("ok", "Saved. Your teacher can see your score and email. You can leave this page when you are ready.");
+    } else {
+      setSaveStatus(
+        "warn",
+        "<b>Your score is ready, but it could not be sent to your teacher automatically</b> (" +
+          escapeHtml(outcome.error) +
+          "). Please copy the summary below and send it to her." +
+          '<div class="copy-box" id="copyBox"></div>' +
+          '<button type="button" class="secondary" id="copyBtn">Copy summary</button>'
+      );
+      const box = document.getElementById("copyBox");
+      if (box) {
+        box.textContent = summary;
+        const btn = document.getElementById("copyBtn");
+        if (btn) {
+          btn.addEventListener("click", function () {
+            navigator.clipboard.writeText(summary).then(function () {
+              btn.textContent = "Copied";
+            }).catch(function () {
+              btn.textContent = "Select the text and copy it";
+            });
+          });
+        }
+      }
+    }
+  }
+
+  function renderResults(payload) {
     const rows = payload.itemResults.map(function (it) {
       return (
         '<div class="item-result">' +
@@ -161,19 +246,6 @@
       );
     }).join("");
 
-    let saveBlock;
-    const summary = buildSummary(payload);
-    if (saved) {
-      saveBlock = '<div class="ok-msg">Your grammar score and email have been sent to your teacher. You can leave this page when you are ready.</div>';
-    } else {
-      saveBlock =
-        '<div class="warn-msg"><b>Your score is ready, but it could not be sent to your teacher automatically</b> (' +
-        escapeHtml(saveError) +
-        "). Please copy the summary below and send it to her." +
-        '<div class="copy-box" id="copyBox"></div>' +
-        '<button type="button" class="secondary" id="copyBtn">Copy summary</button></div>';
-    }
-
     results.innerHTML =
       '<div class="scorebox">' +
         '<div class="big">' + payload.score + " / 24</div>" +
@@ -181,22 +253,12 @@
         "<p>The short email is marked by your teacher and is not included in this score. Word count: " +
         payload.wordCount + ".</p>" +
       "</div>" +
-      saveBlock +
+      '<div id="saveStatus" class="saving-msg">Saving your answers for your teacher…</div>' +
       "<h2>Question review</h2>" +
       rows +
       "<h2>Your email</h2>" +
       '<div class="writing-view">' + escapeHtml(payload.writing) + "</div>";
     results.classList.add("show");
-
-    const box = document.getElementById("copyBox");
-    if (box) {
-      box.textContent = summary;
-      document.getElementById("copyBtn").addEventListener("click", function () {
-        navigator.clipboard.writeText(summary).then(function () {
-          document.getElementById("copyBtn").textContent = "Copied";
-        });
-      });
-    }
   }
 
   function buildSummary(p) {

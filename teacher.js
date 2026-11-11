@@ -39,21 +39,40 @@
     load();
   }
 
+  async function readBin() {
+    const res = await fetch(cfg.keepjson.binUrl);
+    if (!res.ok) throw new Error("Could not load submissions (" + res.status + "). The store may have expired.");
+    const data = await res.json();
+    return (data && Array.isArray(data.submissions)) ? data.submissions.slice() : [];
+  }
+
+  async function writeBin(submissions) {
+    const res = await fetch(cfg.keepjson.binUrl, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + cfg.keepjson.writeKey
+      },
+      body: JSON.stringify({ submissions: submissions })
+    });
+    if (!res.ok) throw new Error("Update failed (" + res.status + ")");
+  }
+
   async function load() {
     loadErr.classList.remove("show");
     list.innerHTML = "<p class='empty'>Loading…</p>";
     try {
-      const res = await fetch(cfg.apiBase + "/" + cfg.resource);
-      if (!res.ok) throw new Error("Could not load submissions (" + res.status + "). The store may have expired.");
-      const data = await res.json();
-      cache = Array.isArray(data) ? data.slice() : [];
+      cache = await readBin();
       cache.sort(function (a, b) {
         return String(b.timeISO || "").localeCompare(String(a.timeISO || ""));
       });
       render();
     } catch (e) {
       list.innerHTML = "";
-      loadErr.textContent = e.message || "Could not load submissions.";
+      loadErr.innerHTML = escapeHtml(e.message || "Could not load submissions.") +
+        (cfg.webhook && cfg.webhook.inboxUrl
+          ? ' You can also open the <a href="' + escapeHtml(cfg.webhook.inboxUrl) + '" target="_blank" rel="noopener">backup inbox</a> (kept for about 7 days).'
+          : "");
       loadErr.classList.add("show");
     }
   }
@@ -82,7 +101,7 @@
         );
       }).join("");
       return (
-        '<article class="card sub-card" data-id="' + escapeHtml(row._id || "") + '">' +
+        '<article class="card sub-card">' +
           '<div class="sub-head">' +
             "<h2>" + escapeHtml(row.name || "Unnamed") + "</h2>" +
             "<div><b>" + escapeHtml(row.score) + " / " + escapeHtml(row.total || 24) + "</b> grammar</div>" +
@@ -103,17 +122,21 @@
     Array.from(list.querySelectorAll(".del")).forEach(function (btn) {
       btn.addEventListener("click", function () {
         const row = cache[Number(btn.getAttribute("data-idx"))];
-        if (!row || !row._id) return;
+        if (!row) return;
         if (!confirm("Delete the submission from " + (row.name || "this student") + "?")) return;
-        deleteEntry(row._id);
+        deleteEntry(row);
       });
     });
   }
 
-  async function deleteEntry(id) {
+  async function deleteEntry(row) {
     try {
-      const res = await fetch(cfg.apiBase + "/" + cfg.resource + "/" + id, { method: "DELETE" });
-      if (!res.ok && res.status !== 200 && res.status !== 204) throw new Error("Delete failed");
+      const current = await readBin();
+      const next = current.filter(function (item) {
+        if (row._id && item._id) return item._id !== row._id;
+        return !(item.name === row.name && item.timeISO === row.timeISO);
+      });
+      await writeBin(next);
       await load();
     } catch (e) {
       alert("Could not delete: " + (e.message || "error"));
@@ -131,11 +154,7 @@
 
   document.getElementById("refreshBtn").addEventListener("click", load);
   document.getElementById("exportJsonBtn").addEventListener("click", function () {
-    const clean = cache.map(function (r) {
-      const c = Object.assign({}, r);
-      return c;
-    });
-    download("form4-quiz-results.json", JSON.stringify(clean, null, 2), "application/json");
+    download("form4-quiz-results.json", JSON.stringify(cache, null, 2), "application/json");
   });
   document.getElementById("exportCsvBtn").addEventListener("click", function () {
     const headers = ["name","timeKL","score","total","wordCount","writing"];

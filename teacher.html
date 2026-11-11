@@ -29,12 +29,13 @@
 
     <section id="panel" style="display:none;">
       <h1>Student submissions</h1>
-      <p class="sub">Newest first. Grammar is auto-scored /24. The email is for you to mark /10. Please export a copy after class — the online store may only keep data for about 24 hours.</p>
+      <p class="sub">Newest first. Grammar is auto-scored /24. The email is for you to mark /10. Please export a JSON or CSV copy after class. The main results list is kept until about 10:00 pm (Asia/Kuala_Lumpur) tonight; a backup inbox is also linked below if you need it later.</p>
       <div class="toolbar">
         <button type="button" class="secondary" id="refreshBtn">Refresh</button>
         <button type="button" class="secondary" id="exportJsonBtn">Download JSON</button>
         <button type="button" class="secondary" id="exportCsvBtn">Download CSV</button>
         <a class="btn secondary" href="index.html">Student quiz</a>
+        <a class="btn secondary" id="backupInboxLink" href="https://webhook.site/#!/fd9b4d49-d452-454e-bc8f-410a5878a724" target="_blank" rel="noopener">Backup inbox</a>
       </div>
       <div class="err" id="loadErr"></div>
       <div id="list"></div>

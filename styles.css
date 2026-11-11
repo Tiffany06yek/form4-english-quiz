@@ -248,6 +248,13 @@ button:disabled { opacity: 0.65; cursor: not-allowed; }
 }
 .badge.ok { background: var(--green-soft); color: var(--green); }
 .badge.no { background: var(--red-soft); color: var(--red); }
+.saving-msg {
+  border-radius: 10px;
+  padding: 0.8rem 0.95rem;
+  margin: 0.8rem 0;
+  background: var(--teal-soft);
+  color: var(--navy);
+}
 .ok-msg, .warn-msg {
   border-radius: 10px;
   padding: 0.8rem 0.95rem;
