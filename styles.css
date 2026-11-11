@@ -132,6 +132,29 @@ input:focus, textarea:focus {
   font-size: 1.02rem;
 }
 .q .num { font-weight: 700; color: var(--navy); }
+.eid {
+  display: inline-block;
+  text-align: center;
+  vertical-align: baseline;
+  margin: 0 0.12em;
+  font-weight: 400;
+}
+.eid u {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 400;
+  font-style: normal;
+}
+.eid .eid-lab {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--navy);
+}
+.q .prompt u,
+.q .prompt u b,
+.q .prompt b u { font-weight: inherit; font-style: inherit; }
 .options {
   display: grid;
   gap: 0.4rem;
