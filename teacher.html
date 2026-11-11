@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teacher results — Form 4 English DLP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <strong>FORM 4 ENGLISH DLP</strong>
+    <span>Teacher results</span>
+  </header>
+
+  <main class="wrap">
+    <section class="card gate" id="gate">
+      <h1>Teacher login</h1>
+      <p class="sub">Enter the class passcode to see student submissions.</p>
+      <label class="field" for="pass">Passcode</label>
+      <input type="password" id="pass" autocomplete="current-password" />
+      <div class="err" id="gateErr">Incorrect passcode.</div>
+      <div class="actions" style="position:static;padding-top:0.8rem;">
+        <button type="button" id="unlockBtn">Open results</button>
+      </div>
+    </section>
+
+    <section id="panel" style="display:none;">
+      <h1>Student submissions</h1>
+      <p class="sub">Newest first. Grammar is auto-scored /24. The email is for you to mark /10. Please export a copy after class — the online store may only keep data for about 24 hours.</p>
+      <div class="toolbar">
+        <button type="button" class="secondary" id="refreshBtn">Refresh</button>
+        <button type="button" class="secondary" id="exportJsonBtn">Download JSON</button>
+        <button type="button" class="secondary" id="exportCsvBtn">Download CSV</button>
+        <a class="btn secondary" href="index.html">Student quiz</a>
+      </div>
+      <div class="err" id="loadErr"></div>
+      <div id="list"></div>
+    </section>
+  </main>
+  <script src="config.js"></script>
+  <script src="teacher.js"></script>
+</body>
+</html>
