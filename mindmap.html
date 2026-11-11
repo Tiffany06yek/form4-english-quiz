@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Form 4 Grammar Mindmap · 语法思维图</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+
+@page { size: 420mm 297mm; margin: 0; }
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 420mm;
+  height: 297mm;
+  background: #F4EFE4;
+  color: #1B3A4B;
+  font-family: "Noto Sans CJK SC", "Noto Sans SC", "Noto Sans", sans-serif;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+* { box-sizing: border-box; }
+.page {
+  position: relative;
+  width: 420mm;
+  height: 297mm;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 48%, #fff8ec 0%, #F4EFE4 58%, #eadfcb 100%);
+}
+.wires {
+  position: absolute;
+  inset: 0;
+  width: 420mm;
+  height: 297mm;
+  pointer-events: none;
+  z-index: 1;
+}
+.header {
+  position: absolute;
+  left: 8mm; top: 5mm; width: 404mm; height: 13mm;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header h1 {
+  margin: 0;
+  font-size: 5.2mm;
+  line-height: 1.15;
+  font-weight: 700;
+  color: #1B3A4B;
+  letter-spacing: 0.02em;
+}
+.header h1 span {
+  color: #B8860B;
+  font-weight: 700;
+}
+.header .sub {
+  margin: 0.4mm 0 0;
+  font-size: 2.7mm;
+  color: #4d646e;
+  font-weight: 400;
+}
+.legend {
+  display: flex;
+  gap: 2.4mm;
+  align-items: center;
+  font-size: 2.4mm;
+  color: #1B3A4B;
+  font-weight: 500;
+}
+.legend i {
+  display: inline-block;
+  width: 3.4mm;
+  height: 3.4mm;
+  border-radius: 0.7mm;
+  margin-right: 1mm;
+  vertical-align: -0.4mm;
+}
+.a-col { background: #1B6B93; }
+.b-col { background: #C26B2D; }
+.c-col { background: #2A7A4F; }
+.d-col { background: #6B4C9A; }
+.e-col { background: #B4445A; }
+
+.branch {
+  position: absolute;
+  z-index: 2;
+  background: rgba(255,255,255,0.55);
+  border: 0.35mm solid rgba(27,58,75,0.12);
+  border-radius: 3.2mm;
+  padding: 2.2mm 2.4mm 2.2mm;
+  box-shadow: 0 0.6mm 2mm rgba(27,58,75,0.06);
+}
+.branch > h2 {
+  margin: 0 0 1.6mm;
+  font-size: 3.1mm;
+  line-height: 1;
+  font-weight: 700;
+  display: flex;
+  align-items: baseline;
+  gap: 2mm;
+  letter-spacing: 0.01em;
+}
+.branch > h2 .tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 7.2mm;
+  height: 5mm;
+  padding: 0 1.4mm;
+  border-radius: 1.2mm;
+  color: #fff;
+  font-size: 2.5mm;
+  font-weight: 700;
+}
+.branch > h2 .en { font-size: 3.1mm; }
+.branch > h2 .zh { font-size: 2.6mm; font-weight: 500; opacity: 0.9; }
+.branch > h2 .hint {
+  margin-left: auto;
+  font-size: 2.3mm;
+  font-weight: 400;
+  color: #5a6e76;
+}
+
+.a { left: 6.5mm; top: 19mm; width: 407mm; height: 93mm; border-top: 1.1mm solid #1B6B93; }
+.b { left: 6.5mm; top: 114.5mm; width: 156mm; height: 94mm; border-top: 1.1mm solid #C26B2D; }
+.c { left: 257.5mm; top: 114.5mm; width: 156mm; height: 94mm; border-top: 1.1mm solid #2A7A4F; }
+.e { left: 6.5mm; top: 211.5mm; width: 201mm; height: 77mm; border-top: 1.1mm solid #B4445A; }
+.d { left: 212.5mm; top: 211.5mm; width: 201mm; height: 77mm; border-top: 1.1mm solid #6B4C9A; }
+
+.hub {
+  position: absolute;
+  left: 166mm; top: 136mm;
+  width: 88mm; height: 52mm;
+  z-index: 4;
+  background: #1B3A4B;
+  color: #fff;
+  border-radius: 50%;
+  border: 1.3mm solid #B8860B;
+  box-shadow: 0 0 0 1.1mm #f4efe4, 0 0 0 1.6mm rgba(184,134,11,0.55), 0 1.2mm 3mm rgba(27,58,75,0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2mm 4mm;
+}
+.hub .kicker {
+  font-size: 2.3mm;
+  letter-spacing: 0.18em;
+  color: #E8C66A;
+  font-weight: 700;
+  margin-bottom: 0.6mm;
+}
+.hub h2 {
+  margin: 0;
+  font-size: 5.4mm;
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.hub .zh {
+  margin-top: 0.8mm;
+  font-size: 3mm;
+  font-weight: 500;
+  color: #f3e6c4;
+}
+.hub .tips {
+  margin-top: 1.3mm;
+  font-size: 2.2mm;
+  line-height: 1.35;
+  color: #d9e3e8;
+  font-weight: 400;
+}
+
+.timeline {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 0 0 2mm;
+  background: linear-gradient(90deg, #16324a 0%, #1B6B93 22%, #2A6F6F 50%, #3d8a4a 78%, #B8860B 100%);
+  border-radius: 2mm;
+  overflow: hidden;
+  min-height: 11.2mm;
+  color: #fff;
+}
+.timeline .step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.8mm 1.6mm 0.8mm 2.2mm;
+  position: relative;
+  font-size: 2.15mm;
+  line-height: 1.2;
+}
+.timeline .step:not(:last-child)::after {
+  content: "▶";
+  position: absolute;
+  right: -0.6mm;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.4mm;
+  color: rgba(255,255,255,0.9);
+  z-index: 1;
+  text-shadow: 0 0 1.2mm rgba(0,0,0,0.25);
+}
+.timeline strong { font-size: 2.35mm; font-weight: 700; }
+.timeline .qs { opacity: 0.92; font-weight: 500; }
+
+.grid4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1.8mm;
+  height: calc(100% - 16.5mm);
+}
+.grid-b {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1.6mm;
+  height: calc(100% - 8.2mm);
+}
+.grid-c {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1.6mm;
+  height: calc(100% - 8.2mm);
+}
+.grid-e {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1.5mm;
+  height: calc(100% - 8.2mm);
+}
+.grid-d {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1.6mm;
+  height: calc(100% - 8.2mm);
+}
+
+.card {
+  background: #fff;
+  border: 0.3mm solid rgba(27,58,75,0.13);
+  border-radius: 2mm;
+  padding: 1.5mm 2mm 1.4mm 2.1mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.55mm;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 1.05mm;
+}
+.a .card::before { background: #1B6B93; }
+.b .card::before { background: #C26B2D; }
+.c .card::before { background: #2A7A4F; }
+.d .card::before { background: #6B4C9A; }
+.e .card::before { background: #B4445A; }
+
+.card .top {
+  display: flex;
+  align-items: baseline;
+  gap: 1.4mm;
+}
+.qnum {
+  flex: none;
+  font-weight: 700;
+  font-size: 2.55mm;
+  line-height: 1;
+  padding: 0.35mm 0.9mm;
+  border-radius: 0.8mm;
+  color: #fff;
+}
+.a .qnum { background: #1B6B93; }
+.b .qnum { background: #C26B2D; }
+.c .qnum { background: #2A7A4F; }
+.d .qnum { background: #6B4C9A; }
+.e .qnum { background: #B4445A; }
+
+.rule {
+  margin: 0;
+  font-size: 2.55mm;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #1B3A4B;
+}
+.ex {
+  margin: 0;
+  font-size: 2.3mm;
+  line-height: 1.25;
+  color: #3b5560;
+  font-style: italic;
+  font-weight: 400;
+}
+.memo {
+  margin: 0.2mm 0 0;
+  font-size: 2.25mm;
+  line-height: 1.32;
+  color: #7A4E12;
+  background: #FFF6E0;
+  border-radius: 1mm;
+  padding: 0.55mm 1.1mm;
+  font-weight: 400;
+}
+.rel {
+  display: inline-block;
+  margin-left: 1mm;
+  font-size: 2mm;
+  font-weight: 700;
+  font-style: normal;
+  color: #fff;
+  background: #1B3A4B;
+  border-radius: 0.8mm;
+  padding: 0.15mm 0.9mm;
+  letter-spacing: 0;
+  vertical-align: 0.15mm;
+}
+.rel.gold { background: #8A6410; }
+.rel.rose { background: #B4445A; }
+.rel.orange { background: #C26B2D; }
+.rel.purple { background: #6B4C9A; }
+
+.relbox {
+  position: absolute;
+  left: 170mm;
+  top: 189.5mm;
+  width: 80mm;
+  height: 20.5mm;
+  z-index: 4;
+  background: #fffdf7;
+  border: 0.4mm solid #B8860B;
+  border-radius: 2mm;
+  padding: 1.1mm 2.2mm 1.1mm 2.3mm;
+  box-shadow: 0 0.4mm 1.2mm rgba(27,58,75,0.08);
+}
+.relbox h3 {
+  margin: 0 0 0.7mm;
+  font-size: 2.25mm;
+  font-weight: 700;
+  color: #8A6410;
+  letter-spacing: 0.12em;
+}
+.relbox ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.relbox li {
+  margin: 0;
+  font-size: 2.05mm;
+  line-height: 1.32;
+  color: #1B3A4B;
+}
+.relbox li b { color: #1B3A4B; }
+.footer {
+  position: absolute;
+  left: 8mm; top: 289.5mm; width: 404mm; height: 5.5mm;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2.15mm;
+  color: #5a6e76;
+}
+.chip {
+  font-size: 2.05mm;
+  color: #1B3A4B;
+  background: #fff;
+  border: 0.25mm dashed #B8860B;
+  border-radius: 1mm;
+  padding: 0.3mm 1.2mm;
+}
+
+
+html, body {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0;
+  overflow: hidden;
+  background: #1B3A4B;
+  font-family: "Noto Sans SC", "Noto Sans CJK SC", "Noto Sans", sans-serif;
+}
+.toolbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 20;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  background: #1B3A4B;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+.toolbar strong { font-size: 15px; letter-spacing: 0.02em; }
+.toolbar strong span { color: #E8C66A; }
+.toolbar .hint { font-size: 12px; color: #c5d3da; margin-left: 6px; flex: 1; }
+.toolbar a, .toolbar button {
+  appearance: none;
+  border: 0;
+  background: #2A6F6F;
+  color: #fff;
+  font: 650 13px/1 "Noto Sans SC", sans-serif;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.toolbar a.ghost, .toolbar button.ghost { background: #2c4a5a; }
+.toolbar a:hover, .toolbar button:hover { filter: brightness(1.08); }
+#viewport {
+  position: fixed;
+  top: 52px; left: 0; right: 0; bottom: 0;
+  overflow: hidden;
+  background: #2a3f4a;
+  touch-action: none;
+  cursor: grab;
+}
+#viewport.dragging { cursor: grabbing; }
+#inner {
+  transform-origin: 0 0;
+  will-change: transform;
+}
+#inner .page {
+  box-shadow: 0 8px 28px rgba(0,0,0,0.28);
+}
+.card { cursor: pointer; transition: opacity 0.15s, box-shadow 0.15s, outline 0.15s; }
+.card:focus { outline: none; }
+body.picking .card { opacity: 0.38; }
+body.picking .card.hot {
+  opacity: 1;
+  box-shadow: 0 0 0 0.55mm #B8860B, 0 1mm 3mm rgba(184,134,11,0.28);
+}
+body.picking .relbox { box-shadow: 0 0 0 0.45mm #B8860B; }
+@media (max-width: 700px) {
+  .toolbar .hint { display: none; }
+  .toolbar strong { font-size: 13px; }
+  .toolbar a, .toolbar button { padding: 8px 9px; font-size: 12px; }
+}
+@media print {
+  .toolbar { display: none !important; }
+  #viewport { position: static; overflow: visible; background: none; }
+  #inner { transform: none !important; }
+  html, body, .page { width: 420mm !important; height: 297mm !important; overflow: hidden; }
+  @page { size: 420mm 297mm; margin: 0; }
+}
+
+</style>
+</head>
+<body>
+  <div class="toolbar">
+    <strong>Form 4 Grammar <span>Mindmap</span></strong>
+    <span class="hint">拖动移动，滚轮或捏合放大。点题目，看看哪些规则是亲戚。</span>
+    <button type="button" class="ghost" id="zoomOut" aria-label="缩小">−</button>
+    <button type="button" class="ghost" id="zoomIn" aria-label="放大">+</button>
+    <button type="button" class="ghost" id="resetBtn">复位</button>
+    <a class="ghost" href="index.html">回测验</a>
+  </div>
+  <div id="viewport">
+    <div id="inner">
+<div class="page">
+  <svg class="wires" viewBox="0 0 420 297" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arrowA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M 0 1.2 L 9 5 L 0 8.8 Z" fill="#1B6B93"/>
+      </marker>
+      <marker id="arrowB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M 0 1.2 L 9 5 L 0 8.8 Z" fill="#C26B2D"/>
+      </marker>
+      <marker id="arrowC" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M 0 1.2 L 9 5 L 0 8.8 Z" fill="#2A7A4F"/>
+      </marker>
+      <marker id="arrowD" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M 0 1.2 L 9 5 L 0 8.8 Z" fill="#6B4C9A"/>
+      </marker>
+      <marker id="arrowE" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M 0 1.2 L 9 5 L 0 8.8 Z" fill="#B4445A"/>
+      </marker>
+      <filter id="labsh" x="-10%" y="-10%" width="120%" height="120%">
+        <feDropShadow dx="0" dy="0.2" stdDeviation="0.2" flood-color="#1B3A4B" flood-opacity="0.15"/>
+      </filter>
+    </defs>
+    <!-- stems from hub to branches -->
+    <path d="M210 136 C210 128 210 122 210 112" stroke="#1B6B93" stroke-width="1.35" fill="none" marker-end="url(#arrowA)"/>
+    <path d="M166 162 C150 162 140 162 130 162" stroke="#C26B2D" stroke-width="1.35" fill="none" marker-end="url(#arrowB)"/>
+    <path d="M254 162 C268 162 278 162 289 162" stroke="#2A7A4F" stroke-width="1.35" fill="none" marker-end="url(#arrowC)"/>
+    <path d="M176 186 C168 195 150 204 126 211.2" stroke="#B4445A" stroke-width="1.35" fill="none" marker-end="url(#arrowE)"/>
+    <path d="M244 186 C252 195 270 204 294 211.2" stroke="#6B4C9A" stroke-width="1.35" fill="none" marker-end="url(#arrowD)"/>
+
+  </svg>
+
+  <header class="header">
+    <div>
+      <h1>Form 4 Grammar <span>Mindmap</span>  ·  语法思维图</h1>
+      <p class="sub">今晚 24 条规则怎么连在一起　·　先问「什么时间？」再问「谁是主语？」　·　中间黄盒和小标签 = 哪些规则是亲戚</p>
+    </div>
+    <div class="legend">
+      <span><i class="a-col"></i>A 时态</span>
+      <span><i class="b-col"></i>B 主谓一致</span>
+      <span><i class="c-col"></i>C 介词</span>
+      <span><i class="d-col"></i>D 冠词</span>
+      <span><i class="e-col"></i>E 找错</span>
+    </div>
+  </header>
+
+  <section class="branch a">
+    <h2>
+      <span class="tag a-col">A</span>
+      <span class="en">Tenses</span>
+      <span class="zh">时态　·　先看时间</span>
+      <span class="hint">过去完成 → 过去 → 现在完成 → 现在 → 将来</span>
+    </h2>
+    <div class="timeline">
+      <div class="step"><strong>过去完成</strong><span class="qs">Q1　had + V3</span></div>
+      <div class="step"><strong>过去进行</strong><span class="qs">Q8　was + ing</span></div>
+      <div class="step"><strong>一般过去</strong><span class="qs">Q5　V2</span></div>
+      <div class="step"><strong>现在完成</strong><span class="qs">Q2 持续 · Q7 结果</span></div>
+      <div class="step"><strong>现在 / If</strong><span class="qs">Q3 ing · Q4 If + 现在</span></div>
+      <div class="step"><strong>将来进行</strong><span class="qs">Q6　will be + ing</span></div>
+    </div>
+    <div class="grid4">
+      <article class="card" data-id="q1" tabindex="0">
+        <div class="top"><span class="qnum">Q1</span><p class="rule">had + V3　·　过去完成</p></div>
+        <p class="ex">The meeting had started at 7.30.</p>
+        <p class="memo">两件过去的事，早到的那位要喊 had：「我先到的！」</p>
+      </article>
+      <article class="card" data-id="q2" data-rel="pp" tabindex="0">
+        <div class="top"><span class="qnum">Q2</span><p class="rule">has / have + V3 + since / for</p></div>
+        <p class="ex">He has lived here since 2022.</p>
+        <p class="memo">Since 问从哪天开始，For 问多久了——到现在还没搬走！</p>
+      </article>
+      <article class="card" data-id="q3" tabindex="0">
+        <div class="top"><span class="qnum">Q3</span><p class="rule">am / is / are + V-ing</p></div>
+        <p class="ex">Listen! The students are singing.</p>
+        <p class="memo">听到 Look! Listen! Now，马上加 ing。正在演，不是每天的习惯！</p>
+      </article>
+      <article class="card" data-id="q4" tabindex="0">
+        <div class="top"><span class="qnum">Q4</span><p class="rule">If + 现在时，will + 原形</p></div>
+        <p class="ex">If she studies, she will pass.</p>
+        <p class="memo">If 很害羞，不敢跟 will 站一起。If 后面用现在，will 走后面！</p>
+      </article>
+      <article class="card" data-id="q5" data-rel="did" tabindex="0">
+        <div class="top"><span class="qnum">Q5</span><p class="rule">过去式 V2　+ yesterday / last…</p></div>
+        <p class="ex">We went to Penang last holiday.</p>
+        <p class="memo">看到 yesterday / last week，动词要「变过去」。别写 I go yesterday！</p>
+      </article>
+      <article class="card" data-id="q6" tabindex="0">
+        <div class="top"><span class="qnum">Q6</span><p class="rule">will be + V-ing　·　将来进行</p></div>
+        <p class="ex">This time tomorrow, we will be sitting on the bus.</p>
+        <p class="memo">明天 8 点不是“将会坐”，是“到时候正坐着考试”！</p>
+      </article>
+      <article class="card" data-id="q7" data-rel="pp" tabindex="0">
+        <div class="top"><span class="qnum">Q7</span><p class="rule">has / have + V3　·　看现在的结果 <span class="rel gold">↔ Q2 同一公式</span></p></div>
+        <p class="ex">I have lost my keys. （现在进不了门）</p>
+        <p class="memo">重点不是何时丢，是现在的惨况。结果还在，就用 have + V3！</p>
+      </article>
+      <article class="card" data-id="q8" tabindex="0">
+        <div class="top"><span class="qnum">Q8</span><p class="rule">was / were + V-ing，突然 V2</p></div>
+        <p class="ex">While I was cooking, the phone rang.</p>
+        <p class="memo">一边正在 ing，一边突然有人闯进来——追剧也是这样演的！</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="hub">
+    <div class="kicker">FORM 4</div>
+    <h2>Grammar</h2>
+    <div class="zh">语法关系图</div>
+    <div class="tips">先看时间　·　再看主语<br>找错题也用这两把钥匙</div>
+  </div>
+
+  <aside class="relbox">
+    <h3>规则是亲戚</h3>
+    <ul>
+      <li><b>Q2 ↔ Q7</b> 都是 have + V3：一个讲持续，一个讲现在的结果</li>
+      <li><b>Q18 ↔ Q20</b> 同一招：a / an 看发音，不看字母</li>
+      <li><b>Q22 ↔ Part B</b> who 和 the number of 都要先找真正的主语</li>
+      <li><b>Q23 ↔ Part A</b> did 已经是过去，后面动词回原形</li>
+    </ul>
+  </aside>
+
+  <section class="branch b">
+    <h2>
+      <span class="tag b-col">B</span>
+      <span class="en">Subject–Verb Agreement</span>
+      <span class="zh">主谓一致</span>
+    </h2>
+    <div class="grid-b">
+      <article class="card" data-id="q9" data-rel="sva" tabindex="0">
+        <div class="top"><span class="qnum">Q9</span><p class="rule">Neither of + 单数动词</p></div>
+        <p class="ex">Neither of the boys wants to leave.</p>
+        <p class="memo">两个都不想，动词却要「单数脸」。Neither 很狡猾！</p>
+      </article>
+      <article class="card" data-id="q10" data-rel="sva" tabindex="0">
+        <div class="top"><span class="qnum">Q10</span><p class="rule">news 等不可数 → 单数</p></div>
+        <p class="ex">The news is encouraging.</p>
+        <p class="memo">News 有 s 却是一条新闻。information / advice / furniture / homework 也一样，别被尾巴的 s 骗了！</p>
+      </article>
+      <article class="card" data-id="q11" data-rel="sva" tabindex="0">
+        <div class="top"><span class="qnum">Q11</span><p class="rule">Each of / One of + 单数</p></div>
+        <p class="ex">Each of the students has a book.</p>
+        <p class="memo">朋友再多，一次只看一个。Each / One of 是「一个一个数」。</p>
+      </article>
+      <article class="card" data-id="q12" data-rel="sva" tabindex="0">
+        <div class="top"><span class="qnum">Q12</span><p class="rule">together with 不改主语</p></div>
+        <p class="ex">My friends, together with my cousin, are coming.</p>
+        <p class="memo">Together with 只是「顺便带上」，表哥不是老板。And 才是合伙！</p>
+      </article>
+      <article class="card" data-id="q13" data-rel="sva" tabindex="0">
+        <div class="top"><span class="qnum">Q13</span><p class="rule">时间 / 金钱 / 距离 = 一整包 → 单数</p></div>
+        <p class="ex">Ten kilometres is a long way.　·　Five dollars is enough.</p>
+        <p class="memo">十公里不是十个人在开会，是一整段路，所以用 is。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="branch c">
+    <h2>
+      <span class="tag c-col">C</span>
+      <span class="en">Prepositions</span>
+      <span class="zh">介词　·　整组背，不要逐字译</span>
+    </h2>
+    <div class="grid-c">
+      <article class="card" data-id="q14" tabindex="0">
+        <div class="top"><span class="qnum">Q14</span><p class="rule">interested in · good at · afraid of · keen on</p></div>
+        <p class="ex">She is interested in music.</p>
+        <p class="memo">兴趣要“进到里面”才算 in，不是 on。搭配要整组背！</p>
+      </article>
+      <article class="card" data-id="q15" tabindex="0">
+        <div class="top"><span class="qnum">Q15</span><p class="rule">wait for 人 / wait at 地点</p></div>
+        <p class="ex">Waiting for the bus at the gate.</p>
+        <p class="memo">For 等的是人，at 等的是地点。先 look for（找），再 look at（看）！</p>
+      </article>
+      <article class="card" data-id="q16" tabindex="0">
+        <div class="top"><span class="qnum">Q16</span><p class="rule">congratulate sb on sth</p></div>
+        <p class="ex">I congratulate you on your success.</p>
+        <p class="memo">恭喜要站在成功上面：on。Thank / apologise for，succeed in。</p>
+      </article>
+      <article class="card" data-id="q17" tabindex="0">
+        <div class="top"><span class="qnum">Q17</span><p class="rule">prefer A to B　（不是 than）</p></div>
+        <p class="ex">I prefer tea to coffee.</p>
+        <p class="memo">Prefer 已经有「比较」，再用 than 就是说两次。用 to 就够了！</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="branch e">
+    <h2>
+      <span class="tag e-col">E</span>
+      <span class="en">Error identification</span>
+      <span class="zh">找错　·　慢慢查：主语、动词、介词、结构</span>
+    </h2>
+    <div class="grid-e">
+      <article class="card" data-id="q22" data-rel="sva" tabindex="0">
+        <div class="top"><span class="qnum">Q22</span><p class="rule">who 跟前面的名词走　·　the number of 单数 / a number of 复数 <span class="rel orange">↔ Part B 主谓一致</span></p></div>
+        <p class="ex">students who are taking…　/　The number of students has increased.</p>
+        <p class="memo">Who 跟大哥走。The number of 是一个数目（is）；A number of 是很多人（are）。</p>
+      </article>
+      <article class="card" data-id="q23" data-rel="did" tabindex="0">
+        <div class="top"><span class="qnum">Q23</span><p class="rule">did + 动词原形　（did 已经是过去） <span class="rel">↔ Part A 时态</span></p></div>
+        <p class="ex">She did not go yesterday.　（不是 did not went）</p>
+        <p class="memo">Did 说：「过去我包了，你回去当原形！」Went 还想加班？不行！</p>
+      </article>
+      <article class="card" data-id="q24" tabindex="0">
+        <div class="top"><span class="qnum">Q24</span><p class="rule">despite + 名词　·　in spite of + 名词　·　although + 句子</p></div>
+        <p class="ex">Despite the rain, we played.　/　Although it was raining, we played.</p>
+        <p class="memo">Despite 是单身，不要 of。In spite 才带着 of。Although 要带一整句出门！</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="branch d">
+    <h2>
+      <span class="tag d-col">D</span>
+      <span class="en">Articles</span>
+      <span class="zh">冠词　·　a / an / the / 不用</span>
+    </h2>
+    <div class="grid-d">
+      <article class="card" data-id="q18" data-rel="sound" tabindex="0">
+        <div class="top"><span class="qnum">Q18</span><p class="rule">a / an 看发音，不看字母 <span class="rel purple">↔ Q20 同一招</span></p></div>
+        <p class="ex">an hour　·　a university　·　an honest man　·　an MP</p>
+        <p class="memo">耳朵比眼睛重要！Hour 不读 h → an；university 读 you → a。</p>
+      </article>
+      <article class="card" data-id="q20" data-rel="sound" tabindex="0">
+        <div class="top"><span class="qnum">Q20</span><p class="rule">跟 Q18 同一招：看发音 <span class="rel purple">↔ Q18</span></p></div>
+        <p class="ex">an unusual idea　·　a useful tip　·　a one-hour class</p>
+        <p class="memo">Unusual 像「安」→ an；useful 像 you → a；one 像 wun → a。U 不一定是 an！</p>
+      </article>
+      <article class="card" data-id="q19" tabindex="0">
+        <div class="top"><span class="qnum">Q19</span><p class="rule">单座山 / 大多数国家不用 the；山脉、海洋要 the</p></div>
+        <p class="ex">Mount Kinabalu　·　the Himalayas　·　the Pacific Ocean</p>
+        <p class="memo">一座山很害羞，不要 the；一整排山、一整片海就不客气了！</p>
+      </article>
+      <article class="card" data-id="q21" tabindex="0">
+        <div class="top"><span class="qnum">Q21</span><p class="rule">双方都知道是哪一个 → the</p></div>
+        <p class="ex">Please close the door.　（就是那一扇）</p>
+        <p class="memo">The =「就是那一个啦」。大家都懂用 the；随便一扇用 a。</p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>Form 4 English DLP　·　Grammar practice mindmap　·　11 November 2026　·　A3 横印</span>
+    <span class="chip">关系：时态时间线　·　Q2 ↔ Q7 同一公式　·　Q18 ↔ Q20 看发音　·　Q22 ↔ 主谓一致　·　Q23 ↔ did + 原形</span>
+  </footer>
+</div>
+    </div>
+  </div>
+<script>
+(function () {
+  const vp = document.getElementById("viewport");
+  const inner = document.getElementById("inner");
+  const MM = 96 / 25.4;
+  const W = 420 * MM, H = 297 * MM;
+  let scale = 1, tx = 0, ty = 0;
+  let dragging = false, sx = 0, sy = 0, ox = 0, oy = 0;
+  let pointers = new Map();
+  let pinch = null;
+
+  function apply() {
+    inner.style.transform = "translate(" + tx + "px," + ty + "px) scale(" + scale + ")";
+  }
+  function fit() {
+    const pad = 20;
+    const s = Math.min((vp.clientWidth - pad * 2) / W, (vp.clientHeight - pad * 2) / H);
+    scale = Math.max(0.2, s);
+    tx = (vp.clientWidth - W * scale) / 2;
+    ty = (vp.clientHeight - H * scale) / 2;
+    apply();
+  }
+  function zoomAt(cx, cy, factor) {
+    const next = Math.min(2.6, Math.max(0.25, scale * factor));
+    const k = next / scale;
+    tx = cx - (cx - tx) * k;
+    ty = cy - (cy - ty) * k;
+    scale = next;
+    apply();
+  }
+
+  document.getElementById("resetBtn").addEventListener("click", fit);
+  document.getElementById("zoomIn").addEventListener("click", function () {
+    zoomAt(vp.clientWidth / 2, vp.clientHeight / 2, 1.2);
+  });
+  document.getElementById("zoomOut").addEventListener("click", function () {
+    zoomAt(vp.clientWidth / 2, vp.clientHeight / 2, 1 / 1.2);
+  });
+  window.addEventListener("resize", fit);
+  vp.addEventListener("wheel", function (e) {
+    e.preventDefault();
+    const r = vp.getBoundingClientRect();
+    zoomAt(e.clientX - r.left, e.clientY - r.top, e.deltaY < 0 ? 1.12 : 1 / 1.12);
+  }, { passive: false });
+
+  vp.addEventListener("pointerdown", function (e) {
+    vp.setPointerCapture(e.pointerId);
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pointers.size === 1) {
+      dragging = true;
+      vp.classList.add("dragging");
+      sx = e.clientX; sy = e.clientY; ox = tx; oy = ty;
+    } else if (pointers.size === 2) {
+      dragging = false;
+      const pts = Array.from(pointers.values());
+      const dx = pts[1].x - pts[0].x, dy = pts[1].y - pts[0].y;
+      const r = vp.getBoundingClientRect();
+      pinch = {
+        dist: Math.hypot(dx, dy) || 1,
+        scale: scale,
+        cx: (pts[0].x + pts[1].x) / 2 - r.left,
+        cy: (pts[0].y + pts[1].y) / 2 - r.top
+      };
+    }
+  });
+  vp.addEventListener("pointermove", function (e) {
+    if (!pointers.has(e.pointerId)) return;
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pinch && pointers.size >= 2) {
+      const pts = Array.from(pointers.values());
+      const dist = Math.hypot(pts[1].x - pts[0].x, pts[1].y - pts[0].y) || 1;
+      const r = vp.getBoundingClientRect();
+      const cx = (pts[0].x + pts[1].x) / 2 - r.left;
+      const cy = (pts[0].y + pts[1].y) / 2 - r.top;
+      const factor = dist / pinch.dist;
+      const next = Math.min(2.6, Math.max(0.25, pinch.scale * factor));
+      const k = next / scale;
+      tx = cx - (cx - tx) * k;
+      ty = cy - (cy - ty) * k;
+      scale = next;
+      apply();
+      return;
+    }
+    if (dragging) {
+      tx = ox + (e.clientX - sx);
+      ty = oy + (e.clientY - sy);
+      apply();
+    }
+  });
+  function endPointer(e) {
+    pointers.delete(e.pointerId);
+    if (pointers.size < 2) pinch = null;
+    if (pointers.size === 0) {
+      dragging = false;
+      vp.classList.remove("dragging");
+    }
+  }
+  vp.addEventListener("pointerup", endPointer);
+  vp.addEventListener("pointercancel", endPointer);
+
+  const cards = Array.from(document.querySelectorAll(".card[data-id]"));
+  function clearHot() {
+    document.body.classList.remove("picking");
+    cards.forEach(function (c) { c.classList.remove("hot"); });
+  }
+  cards.forEach(function (card) {
+    card.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const rel = card.getAttribute("data-rel");
+      if (!rel) {
+        clearHot();
+        return;
+      }
+      const already = card.classList.contains("hot") && document.body.classList.contains("picking");
+      clearHot();
+      if (already) return;
+      document.body.classList.add("picking");
+      cards.forEach(function (c) {
+        if (c.getAttribute("data-rel") === rel) c.classList.add("hot");
+      });
+    });
+  });
+  vp.addEventListener("click", function (e) {
+    if (e.target.closest(".card")) return;
+    clearHot();
+  });
+
+  fit();
+})();
+</script>
+</body>
+</html>
