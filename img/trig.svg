@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 310" role="img" aria-label="Right-angled triangle ACD with right angle at C. ABC is a straight line. AB is 8 cm, BC is 20 cm, CD is 21 cm.">
+  <rect width="340" height="310" fill="#FBF8F2"/>
+  <polygon points="40,60 264,60 264,228" fill="#E8F0F4" stroke="#1B3A4B" stroke-width="2"/>
+  <line x1="104" y1="60" x2="264" y2="228" stroke="#2A6F6F" stroke-width="2"/>
+  <path d="M 250,60 L 250,74 L 264,74" fill="none" stroke="#1B3A4B" stroke-width="1.5"/>
+  <path d="M 62,60 A 22 22 0 0 1 60,70" fill="none" stroke="#B8860B" stroke-width="1.8"/>
+  <circle cx="40" cy="60" r="2.5" fill="#1B3A4B"/>
+  <circle cx="104" cy="60" r="2.5" fill="#1B3A4B"/>
+  <circle cx="264" cy="60" r="2.5" fill="#1B3A4B"/>
+  <circle cx="264" cy="228" r="2.5" fill="#1B3A4B"/>
+  <text x="36" y="46" font-size="15" font-weight="700" fill="#1B3A4B">A</text>
+  <text x="98" y="46" font-size="15" font-weight="700" fill="#1B3A4B">B</text>
+  <text x="274" y="52" font-size="15" font-weight="700" fill="#1B3A4B">C</text>
+  <text x="274" y="234" font-size="15" font-weight="700" fill="#1B3A4B">D</text>
+  <text x="72.0" y="78" text-anchor="middle" font-size="13" fill="#1B3A4B">8 cm</text>
+  <text x="184.0" y="78" text-anchor="middle" font-size="13" fill="#1B3A4B">20 cm</text>
+  <text x="280" y="148.0" font-size="13" fill="#1B3A4B">21 cm</text>
+</svg>

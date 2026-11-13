@@ -3,36 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SPM Mathematics Diagnostic — Form 5</title>
+  <title>SPM Mathematics Paper 2 Diagnostic</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261113a" />
+  <link rel="stylesheet" href="styles.css?v=20261113p2" />
 </head>
 <body>
   <header class="topbar">
     <strong>FORM 5 / SPM MATHEMATICS</strong>
-    <span>Diagnostic · Paper 1 items</span>
+    <span>Paper 2 diagnostic</span>
   </header>
   <main class="wrap">
-    <h1>SPM Mathematics Diagnostic</h1>
-    <p class="sub">18 multiple-choice questions from a real 2025 Kedah trial-style paper · 18 marks · about 35–40 minutes</p>
+    <h1>SPM Mathematics Diagnostic — Paper 2</h1>
+    <p class="sub">11 structured questions (29 marks) · about 40–50 minutes · English · type your final answers</p>
 
     <div class="card paper-box">
-      <p><b>This page is the answer sheet.</b> The questions themselves are in the original paper. Open or print it first, work in the paper, then type your final answers here.</p>
-      <p>
-        Paper:
-        <i>Kedah — Modul Peningkatan Prestasi Murid Tingkatan 5 Tahun 2025, Mathematics Paper 1</i>
-        (bilingual, KSSM).
-      </p>
-      <p>
-        <a id="paperLink" href="#" target="_blank" rel="noopener">Open the question paper (PDF)</a>
-      </p>
-      <ol class="how-list">
-        <li>Write your name below.</li>
-        <li>For each item, go to the question number and page given, do the working in the paper, then choose A, B, C or D.</li>
-        <li>Press Submit when you have finished. Your score will appear immediately.</li>
-      </ol>
+      <p>Work on paper first, then type each <b>final answer</b> in the box. Marking is strict: your answer must match the required form (see the hint under each box). Spaces and capital letters do not matter. For a 2 decimal-place question you must write exactly two digits after the point (for example 31.43). Fractions must be in simplest form (for example 3/5, not 6/10).</p>
+      <p>Show your workings on paper so your teacher can go through them with you after you submit. Your score will appear as soon as you press Submit.</p>
     </div>
 
     <form id="quiz" autocomplete="off">
@@ -41,13 +29,239 @@
         <input type="text" id="studentName" name="studentName" required placeholder="Type your name" maxlength="80" />
       </div>
 
-      <div class="banner">
-        <span>Answer sheet</span>
-        <span class="right">18 questions · 1 mark each · 18 marks</span>
+      <!-- Q1 -->
+      <div class="banner"><span>Question 1</span><span class="right">Ungrouped data · 3 marks</span></div>
+      <div class="q">
+        <p class="prompt"><span class="num">1.</span> The table shows the scores of 40 students in a Mathematics quiz.</p>
+        <table class="checklist">
+          <thead><tr><th>Score</th><th>70</th><th>71</th><th>72</th><th>73</th><th>74</th><th>75</th></tr></thead>
+          <tbody><tr><td>Frequency</td><td>8</td><td>6</td><td>12</td><td>8</td><td>4</td><td>2</td></tr></tbody>
+        </table>
+        <p>Calculate</p>
+        <div class="part">
+          <label class="field" for="q1a">(a) the mode. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q1a" name="q1a" inputmode="numeric" />
+          <p class="fmt">Give your answer as an integer.</p>
+        </div>
+        <div class="part">
+          <label class="field" for="q1b">(b) the median. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q1b" name="q1b" inputmode="numeric" />
+          <p class="fmt">Give your answer as an integer.</p>
+        </div>
+        <div class="part">
+          <label class="field" for="q1c">(c) the mean. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q1c" name="q1c" inputmode="decimal" />
+          <p class="fmt">Give your answer as an integer, or as a decimal equivalent of that integer.</p>
+        </div>
+        <p class="cite">Adapted from Perak 2025 Modul Kecemerlangan Tingkatan 5, Mathematics Paper 2, Question 1 (numbers changed).</p>
       </div>
-      <p class="hint">Choose one option for each question. Use the original paper for the full question, diagrams and options.</p>
 
-      <div id="items"></div>
+      <!-- Q2 -->
+      <div class="banner"><span>Question 2</span><span class="right">Quadratic functions · 4 marks</span></div>
+      <div class="q">
+        <p class="prompt"><span class="num">2.</span> The diagram shows part of the graph of the quadratic function <i>f</i>(<i>x</i>) = −<i>a</i>(<i>x</i> − <i>m</i>)(<i>x</i> − <i>n</i>), where <i>m</i> &lt; <i>n</i>.</p>
+        <div class="diagram"><img src="img/quadratic.svg" alt="Graph of a quadratic function crossing the x-axis at −3 and 5, and the y-axis at 30" /></div>
+        <p>(a) Calculate the value of</p>
+        <div class="part">
+          <label class="field" for="q2a">(i) <i>m</i>. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q2a" name="q2a" inputmode="numeric" />
+          <p class="fmt">Give your answer as an integer. Include a minus sign if it is negative.</p>
+        </div>
+        <div class="part">
+          <label class="field" for="q2b">(ii) <i>n</i>. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q2b" name="q2b" inputmode="numeric" />
+          <p class="fmt">Give your answer as an integer.</p>
+        </div>
+        <div class="part">
+          <label class="field" for="q2c">(iii) <i>a</i>. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q2c" name="q2c" inputmode="numeric" />
+          <p class="fmt">Give your answer as an integer.</p>
+        </div>
+        <div class="part">
+          <label class="field" for="q2d">(b) State the equation of the axis of symmetry. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q2d" name="q2d" />
+          <p class="fmt">Give your answer as an equation in the form x = …</p>
+        </div>
+        <p class="cite">Adapted from Pulau Pinang 2025 Latih Tubi Mathematics Paper 2, Question 5 (numbers changed).</p>
+      </div>
+
+      <!-- Q3 -->
+      <div class="banner"><span>Question 3</span><span class="right">Linear inequalities · 3 marks</span></div>
+      <div class="q">
+        <p class="prompt"><span class="num">3.</span> Puan Lina wishes to donate boxed meals for a school banquet. The number of boxed meals to be donated is at most 90. The number of chicken meals, <i>y</i>, is at least three times the number of beef meals, <i>x</i>.</p>
+        <div class="part">
+          <label class="field" for="q3a">(a) Write an inequality, other than <i>x</i> ≥ 0 and <i>y</i> ≥ 0, for the total number of meals. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q3a" name="q3a" />
+          <p class="fmt">Use x and y. You may write ≤ as &lt;= . Example form: x + y ≤ 90</p>
+        </div>
+        <div class="part">
+          <label class="field" for="q3b">(b) Write an inequality relating <i>y</i> and <i>x</i> for the chicken and beef meals. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q3b" name="q3b" />
+          <p class="fmt">You may write ≥ as &gt;= . Example form: y ≥ 3x</p>
+        </div>
+        <div class="part">
+          <label class="field" for="q3c">(c) If 15 beef meals are donated, find the maximum number of chicken meals that can be donated. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q3c" name="q3c" inputmode="numeric" />
+          <p class="fmt">Give your answer as an integer.</p>
+        </div>
+        <p class="cite">Adapted from Perak 2025 Modul Kecemerlangan Tingkatan 5, Mathematics Paper 2, Question 8 (numbers changed).</p>
+      </div>
+
+      <!-- Q4 -->
+      <div class="banner"><span>Question 4</span><span class="right">Matrices · 2 marks</span></div>
+      <div class="q">
+        <p class="prompt"><span class="num">4.</span> A shop offers two fruit packages.</p>
+        <table class="checklist">
+          <thead><tr><th>Package</th><th>Mango (kg)</th><th>Papaya (kg)</th></tr></thead>
+          <tbody>
+            <tr><td>A</td><td>8</td><td>6</td></tr>
+            <tr><td>B</td><td>15</td><td>20</td></tr>
+          </tbody>
+        </table>
+        <p>Amira bought two sets of package A and paid RM96. She bought one set of package B and paid RM125. By using the matrix method, find</p>
+        <div class="part">
+          <label class="field" for="q4a">(a) the price, in RM, of 1 kg of mango. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q4a" name="q4a" inputmode="decimal" />
+          <p class="fmt">Give your answer as a whole number or to 2 decimal places.</p>
+        </div>
+        <div class="part">
+          <label class="field" for="q4b">(b) the price, in RM, of 1 kg of papaya. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q4b" name="q4b" inputmode="decimal" />
+          <p class="fmt">Give your answer as a whole number or to 2 decimal places.</p>
+        </div>
+        <p class="cite">Adapted from Perak 2025 Modul Kecemerlangan Tingkatan 5, Mathematics Paper 2, Question 9 (numbers and context changed).</p>
+      </div>
+
+      <!-- Q5 -->
+      <div class="banner"><span>Question 5</span><span class="right">Consumer mathematics: tax · 2 marks</span></div>
+      <div class="q">
+        <p class="prompt"><span class="num">5.</span></p>
+        <div class="part">
+          <label class="field" for="q5a">(a) Ali buys a book priced at RM16.20, which already includes 8% sales tax. Calculate the price of the book before tax, in RM. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q5a" name="q5a" inputmode="decimal" />
+          <p class="fmt">Give your answer as a whole number or to 2 decimal places.</p>
+        </div>
+        <div class="part">
+          <label class="field" for="q5b">(b) Kamal owns a plot of land measuring 12 m by 18 m. The quit rent is RM0.25 per square metre. Calculate the quit rent, in RM, that Kamal must pay each year. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q5b" name="q5b" inputmode="decimal" />
+          <p class="fmt">Give your answer as a whole number or to 2 decimal places.</p>
+        </div>
+        <p class="cite">Adapted from Perak 2025 Modul Kecemerlangan Tingkatan 5, Mathematics Paper 2, Question 10 (numbers changed).</p>
+      </div>
+
+      <!-- Q6 -->
+      <div class="banner"><span>Question 6</span><span class="right">Trigonometric ratios · 4 marks</span></div>
+      <div class="q">
+        <p class="prompt"><span class="num">6.</span> The diagram shows that <i>ACD</i> is a right-angled triangle. <i>ABC</i> is a straight line.</p>
+        <div class="diagram"><img src="img/trig.svg" alt="Right-angled triangle ACD with right angle at C, AB = 8 cm, BC = 20 cm, CD = 21 cm" /></div>
+        <div class="part">
+          <label class="field" for="q6a">(a) Calculate the value of sin ∠<i>CAD</i>. <span class="topic-tag">2 marks</span></label>
+          <input class="ans" type="text" id="q6a" name="q6a" />
+          <p class="fmt">Give your answer as a fraction in simplest form, for example 3/5.</p>
+        </div>
+        <div class="part">
+          <label class="field" for="q6b">(b) Calculate the value of cos ∠<i>ABD</i>. <span class="topic-tag">2 marks</span></label>
+          <input class="ans" type="text" id="q6b" name="q6b" />
+          <p class="fmt">Give your answer as a fraction in simplest form. Include a minus sign if the value is negative.</p>
+        </div>
+        <p class="cite">Adapted from Perak 2025 Modul Kecemerlangan Tingkatan 5, Mathematics Paper 2, Question 6 (numbers changed).</p>
+      </div>
+
+      <!-- Q7 -->
+      <div class="banner"><span>Question 7</span><span class="right">Network in graph theory · 2 marks</span></div>
+      <div class="q">
+        <p class="prompt"><span class="num">7.</span> The diagram shows a directed graph that represents one-way roads connecting six towns, <i>A</i>, <i>B</i>, <i>C</i>, <i>D</i>, <i>E</i> and <i>F</i>.</p>
+        <div class="diagram"><img src="img/graph.svg" alt="Directed graph with vertices A, B, C, D, E, F" /></div>
+        <p>The degree of a vertex is the sum of its incoming and outgoing edges. The degree of a graph is the sum of the degrees of all its vertices.</p>
+        <div class="part">
+          <label class="field" for="q7a">(a) Find the degree of vertex <i>C</i>. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q7a" name="q7a" inputmode="numeric" />
+          <p class="fmt">Give your answer as an integer.</p>
+        </div>
+        <div class="part">
+          <label class="field" for="q7b">(b) Find the degree of the graph. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q7b" name="q7b" inputmode="numeric" />
+          <p class="fmt">Give your answer as an integer.</p>
+        </div>
+        <p class="cite">Adapted from Pulau Pinang 2025 Latih Tubi Mathematics Paper 2, Question 7 (the edge set was changed).</p>
+      </div>
+
+      <!-- Q8 -->
+      <div class="banner"><span>Question 8</span><span class="right">Probability of combined events · 2 marks</span></div>
+      <div class="q">
+        <p class="prompt"><span class="num">8.</span> A box contains 8 cakes, of which 5 are modern cakes (<i>M</i>) and 3 are traditional cakes (<i>T</i>). Two cakes are chosen at random, one after another, without replacement. The tree diagram shows all possible outcomes.</p>
+        <div class="diagram"><img src="img/tree.svg" alt="Tree diagram for two cakes chosen without replacement" /></div>
+        <p>Calculate the probability that</p>
+        <div class="part">
+          <label class="field" for="q8a">(a) both cakes are modern cakes. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q8a" name="q8a" />
+          <p class="fmt">Give your answer as a fraction in simplest form.</p>
+        </div>
+        <div class="part">
+          <label class="field" for="q8b">(b) at least one traditional cake is chosen. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q8b" name="q8b" />
+          <p class="fmt">Give your answer as a fraction in simplest form.</p>
+        </div>
+        <p class="cite">Adapted from Pulau Pinang 2025 Latih Tubi Mathematics Paper 2, Question 8, and Perak 2025 Paper 2 Question 17(d) (numbers changed).</p>
+      </div>
+
+      <!-- Q9 -->
+      <div class="banner"><span>Question 9</span><span class="right">Operations on sets · 2 marks</span></div>
+      <div class="q">
+        <p class="prompt"><span class="num">9.</span> It is given that the universal set ξ = {<i>x</i> : 10 ≤ <i>x</i> ≤ 20, <i>x</i> is an integer}, set <i>P</i> = {<i>x</i> : <i>x</i> is a prime number} and set <i>Q</i> = {<i>x</i> : <i>x</i> is a multiple of 4}.</p>
+        <div class="part">
+          <label class="field" for="q9a">(a) List all the elements of set <i>P</i>, using set notation. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q9a" name="q9a" />
+          <p class="fmt">Write the elements in ascending order, for example {2, 3, 5}.</p>
+        </div>
+        <div class="part">
+          <label class="field" for="q9b">(b) Find n(<i>P</i> ∪ <i>Q</i>). <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q9b" name="q9b" inputmode="numeric" />
+          <p class="fmt">Give your answer as an integer.</p>
+        </div>
+        <p class="cite">Adapted from Perak 2025 Modul Kecemerlangan Tingkatan 5, Mathematics Paper 2, Question 12(a) (the range and the required parts were changed).</p>
+      </div>
+
+      <!-- Q10 -->
+      <div class="banner"><span>Question 10</span><span class="right">Transformations · 3 marks</span></div>
+      <div class="q">
+        <p class="prompt"><span class="num">10.</span> The diagram shows point <i>S</i> on a Cartesian plane.</p>
+        <div class="diagram"><img src="img/grid.svg" alt="Cartesian grid with point S at (5, 7)" /></div>
+        <p>Transformation <b>T</b> is a translation (<span class="colvec">−3<br/>2</span>).</p>
+        <p>Transformation <b>R</b> is a reflection in the line <i>y</i> = 6.</p>
+        <p>Transformation <b>P</b> is a clockwise rotation of 90° about the centre (3, 4).</p>
+        <p>State the image coordinates of point <i>S</i> under the following transformations:</p>
+        <div class="part">
+          <label class="field" for="q10a">(a) <b>R</b>. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q10a" name="q10a" />
+          <p class="fmt">Give your answer in the form (x, y).</p>
+        </div>
+        <div class="part">
+          <label class="field" for="q10b">(b) <b>PT</b>. <span class="topic-tag">2 marks</span></label>
+          <input class="ans" type="text" id="q10b" name="q10b" />
+          <p class="fmt">Give your answer in the form (x, y). PT means T is applied first, then P.</p>
+        </div>
+        <p class="cite">Adapted from Pulau Pinang 2025 Latih Tubi Mathematics Paper 2, Question 11(a) (the point and the transformations were changed).</p>
+      </div>
+
+      <!-- Q11 -->
+      <div class="banner"><span>Question 11</span><span class="right">Mathematical modelling · 2 marks</span></div>
+      <div class="q">
+        <p class="prompt"><span class="num">11.</span> A playground is to be built in the shape of a circle with diameter 10 m, as shown in the diagram.</p>
+        <div class="diagram"><img src="img/circle.svg" alt="A circle with diameter 10 metres" /></div>
+        <p>Use π = 22/7.</p>
+        <div class="part">
+          <label class="field" for="q11a">(a) Calculate the length, in m, of the fence required to enclose the playground. Give your final answer to 2 decimal places. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q11a" name="q11a" inputmode="decimal" />
+          <p class="fmt">Give your answer exactly to 2 decimal places, for example 12.34.</p>
+        </div>
+        <div class="part">
+          <label class="field" for="q11b">(b) The cost of the fence is RM8 per metre. Using your rounded answer from (a), calculate the total cost, in RM, of the fence. <span class="topic-tag">1 mark</span></label>
+          <input class="ans" type="text" id="q11b" name="q11b" inputmode="decimal" />
+          <p class="fmt">Give your answer exactly to 2 decimal places.</p>
+        </div>
+        <p class="cite">Adapted from Perak 2025 Modul Kecemerlangan Tingkatan 5, Mathematics Paper 2, Question 16(c) (numbers changed).</p>
+      </div>
 
       <div class="err" id="formError"></div>
       <div class="actions">
@@ -57,8 +271,8 @@
 
     <div id="results" hidden></div>
   </main>
-  <script src="math-config.js?v=20261113a"></script>
-  <script src="math-items.js?v=20261113a"></script>
-  <script src="math-quiz.js?v=20261113a"></script>
+  <script src="math-config.js?v=20261113p2"></script>
+  <script src="math-items.js?v=20261113p2"></script>
+  <script src="math-quiz.js?v=20261113p2"></script>
 </body>
 </html>

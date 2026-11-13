@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 410 280" role="img" aria-label="Directed graph with vertices A B C D E F and seven directed edges">
+  <rect width="410" height="280" fill="#FBF8F2"/>
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#2A6F6F"/></marker>
+  </defs>
+  <line x1="68.0" y1="137.4" x2="132.0" y2="92.6" stroke="#2A6F6F" stroke-width="2.2" marker-end="url(#arr)"/>
+<line x1="172.0" y1="80.0" x2="228.0" y2="80.0" stroke="#2A6F6F" stroke-width="2.2" marker-end="url(#arr)"/>
+<line x1="272.0" y1="80.0" x2="328.0" y2="80.0" stroke="#2A6F6F" stroke-width="2.2" marker-end="url(#arr)"/>
+<line x1="250.0" y1="102.0" x2="250.0" y2="178.0" stroke="#2A6F6F" stroke-width="2.2" marker-end="url(#arr)"/>
+<line x1="228.0" y1="200.0" x2="172.0" y2="200.0" stroke="#2A6F6F" stroke-width="2.2" marker-end="url(#arr)"/>
+<line x1="150.0" y1="178.0" x2="150.0" y2="102.0" stroke="#2A6F6F" stroke-width="2.2" marker-end="url(#arr)"/>
+<line x1="335.9" y1="96.9" x2="264.1" y2="183.1" stroke="#2A6F6F" stroke-width="2.2" marker-end="url(#arr)"/>
+  <circle cx="50" cy="150" r="18" fill="#1B3A4B"/><text x="50" y="155" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">A</text>
+<circle cx="150" cy="80" r="18" fill="#1B3A4B"/><text x="150" y="85" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">B</text>
+<circle cx="250" cy="80" r="18" fill="#1B3A4B"/><text x="250" y="85" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">C</text>
+<circle cx="350" cy="80" r="18" fill="#1B3A4B"/><text x="350" y="85" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">D</text>
+<circle cx="250" cy="200" r="18" fill="#1B3A4B"/><text x="250" y="205" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">E</text>
+<circle cx="150" cy="200" r="18" fill="#1B3A4B"/><text x="150" y="205" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">F</text>
+
+</svg>

@@ -91,7 +91,7 @@
       loadErr.innerHTML = escapeHtml(e.message || "Could not load submissions.") +
         expiredNote() +
         (cfg.webhook && cfg.webhook.inboxUrl
-          ? ' Open the <a href="' + escapeHtml(cfg.webhook.inboxUrl) + '" target="_blank" rel="noopener">backup inbox</a> (kept until about 12:56 pm, 20 Nov 2026, Asia/Kuala_Lumpur).'
+          ? ' Open the <a href="' + escapeHtml(cfg.webhook.inboxUrl) + '" target="_blank" rel="noopener">backup inbox</a> (kept until about 1:16 pm, 20 Nov 2026, Asia/Kuala_Lumpur).'
           : "");
       loadErr.classList.add("show");
     }
@@ -106,12 +106,22 @@
   }
 
   function topicSummary(row) {
-    const wr = (row.itemResults || []).filter(function (it) { return !it.ok; });
-    if (!wr.length) return '<p class="meta">All topics correct.</p>';
-    return '<p class="meta"><b>Topics to review:</b> ' +
-      wr.map(function (it) {
-        return escapeHtml(it.topic) + " (P1 Q" + escapeHtml(String(it.paperQ)) + ")";
-      }).join("; ") + "</p>";
+    const map = {};
+    (row.itemResults || []).forEach(function (it) {
+      const t = it.topic || "Other";
+      if (!map[t]) map[t] = { got: 0, max: 0, wrong: [] };
+      map[t].max += (it.marks || 1);
+      if (it.ok) map[t].got += (it.marks || 1);
+      else map[t].wrong.push((it.q ? "Q"+it.q+" " : "") + (it.part || it.id));
+    });
+    const keys = Object.keys(map);
+    if (!keys.length) return "";
+    const rows = keys.map(function (t) {
+      const r = map[t];
+      const weak = r.got < r.max ? " · review " + r.wrong.join(", ") : "";
+      return "<tr><td>" + escapeHtml(t) + "</td><td>" + r.got + " / " + r.max + escapeHtml(weak) + "</td></tr>";
+    }).join("");
+    return '<h3>Score by topic</h3><table class="checklist"><tbody>' + rows + "</tbody></table>";
   }
 
   function render() {
@@ -124,10 +134,11 @@
         return (
           '<div class="item-result">' +
             '<span class="badge ' + (it.ok ? "ok" : "no") + '">' + (it.ok ? "Correct" : "Wrong") + "</span>" +
-            "<div><b>" + escapeHtml(it.id) + ".</b> Paper 1 Q" + escapeHtml(String(it.paperQ)) +
-            " · " + escapeHtml(it.topic || "") + "<br>" +
+            "<div><b>Q" + escapeHtml(String(it.q || it.id)) + " " + escapeHtml(it.part || "") + "</b> · " +
+            escapeHtml(it.topic || "") +
+            " (" + escapeHtml(String(it.marks || 1)) + ")<br>Student: " +
             escapeHtml(it.student) +
-            (it.ok ? "" : " &nbsp;→&nbsp; <b>" + escapeHtml(it.correct) + "</b>") +
+            (it.ok ? "" : " &nbsp;→&nbsp; correct: <b>" + escapeHtml(it.correct) + "</b>") +
             "</div></div>"
         );
       }).join("");
@@ -182,11 +193,11 @@
 
   document.getElementById("refreshBtn").addEventListener("click", load);
   document.getElementById("exportJsonBtn").addEventListener("click", function () {
-    download("spm-math-results.json", JSON.stringify(cache, null, 2), "application/json");
+    download("spm-math-p2-results.json", JSON.stringify(cache, null, 2), "application/json");
   });
   document.getElementById("exportCsvBtn").addEventListener("click", function () {
     const headers = ["name", "timeKL", "score", "total"];
-    items.forEach(function (it) { headers.push("item" + it.id + "_P1Q" + it.paperQ); });
+    items.forEach(function (it) { headers.push("Q" + it.q + "_" + String(it.part || it.id).replace(/[^A-Za-z0-9]+/g,"_")); });
     const lines = [headers.join(",")];
     cache.forEach(function (r) {
       const ans = r.answers || {};
@@ -194,7 +205,7 @@
       items.forEach(function (it) { cols.push(csv(ans[it.id])); });
       lines.push(cols.join(","));
     });
-    download("spm-math-results.csv", lines.join("\n"), "text/csv");
+    download("spm-math-p2-results.csv", lines.join("\n"), "text/csv");
   });
 
   function csv(v) {
