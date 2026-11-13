@@ -324,3 +324,29 @@ footer.site a { color: var(--teal); }
   white-space: pre-wrap;
 }
 .empty { color: var(--muted); text-align: center; padding: 2rem 1rem; }
+
+/* Maths diagnostic extras */
+.cite {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0.15rem 0 0.55rem 1.9rem;
+}
+.topic-tag {
+  display: inline-block;
+  background: var(--teal-soft);
+  color: var(--navy);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+.paper-box a { color: var(--teal); font-weight: 600; }
+.how-list { margin: 0.3rem 0 0; padding-left: 1.2rem; }
+.how-list li { margin: 0.25rem 0; }
+.checklist { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.checklist th, .checklist td { border-bottom: 1px solid var(--line); padding: 0.4rem 0.35rem; text-align: left; }
+.checklist th { color: var(--navy); font-size: 0.8rem; }

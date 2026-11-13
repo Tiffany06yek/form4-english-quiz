@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SPM Mathematics Diagnostic — Form 5</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20261113a" />
+</head>
+<body>
+  <header class="topbar">
+    <strong>FORM 5 / SPM MATHEMATICS</strong>
+    <span>Diagnostic · Paper 1 items</span>
+  </header>
+  <main class="wrap">
+    <h1>SPM Mathematics Diagnostic</h1>
+    <p class="sub">18 multiple-choice questions from a real 2025 Kedah trial-style paper · 18 marks · about 35–40 minutes</p>
+
+    <div class="card paper-box">
+      <p><b>This page is the answer sheet.</b> The questions themselves are in the original paper. Open or print it first, work in the paper, then type your final answers here.</p>
+      <p>
+        Paper:
+        <i>Kedah — Modul Peningkatan Prestasi Murid Tingkatan 5 Tahun 2025, Mathematics Paper 1</i>
+        (bilingual, KSSM).
+      </p>
+      <p>
+        <a id="paperLink" href="#" target="_blank" rel="noopener">Open the question paper (PDF)</a>
+      </p>
+      <ol class="how-list">
+        <li>Write your name below.</li>
+        <li>For each item, go to the question number and page given, do the working in the paper, then choose A, B, C or D.</li>
+        <li>Press Submit when you have finished. Your score will appear immediately.</li>
+      </ol>
+    </div>
+
+    <form id="quiz" autocomplete="off">
+      <div class="card">
+        <label class="field" for="studentName">Student name</label>
+        <input type="text" id="studentName" name="studentName" required placeholder="Type your name" maxlength="80" />
+      </div>
+
+      <div class="banner">
+        <span>Answer sheet</span>
+        <span class="right">18 questions · 1 mark each · 18 marks</span>
+      </div>
+      <p class="hint">Choose one option for each question. Use the original paper for the full question, diagrams and options.</p>
+
+      <div id="items"></div>
+
+      <div class="err" id="formError"></div>
+      <div class="actions">
+        <button type="submit" id="submitBtn">Submit</button>
+      </div>
+    </form>
+
+    <div id="results" hidden></div>
+  </main>
+  <script src="math-config.js?v=20261113a"></script>
+  <script src="math-items.js?v=20261113a"></script>
+  <script src="math-quiz.js?v=20261113a"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teacher results — SPM Mathematics Diagnostic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20261113a" />
+</head>
+<body>
+  <header class="topbar">
+    <strong>FORM 5 / SPM MATHEMATICS</strong>
+    <span>Teacher results</span>
+  </header>
+
+  <main class="wrap">
+    <section class="card gate" id="gate">
+      <h1>Teacher login</h1>
+      <p class="sub">Enter the class passcode to see student submissions.</p>
+      <label class="field" for="pass">Passcode</label>
+      <input type="password" id="pass" autocomplete="current-password" />
+      <div class="err" id="gateErr">Incorrect passcode.</div>
+      <div class="actions" style="position:static;padding-top:0.8rem;">
+        <button type="button" id="unlockBtn">Open results</button>
+      </div>
+    </section>
+
+    <section id="panel" style="display:none;">
+      <h1>Student submissions</h1>
+      <p class="sub">Newest first. All 18 items are auto-scored. Please download a CSV or JSON copy after class. The fast results list may expire a few hours after it was set up; a backup inbox (kept until about 12:56 pm, 20 Nov 2026, Asia/Kuala_Lumpur) is linked below.</p>
+      <div class="toolbar">
+        <button type="button" class="secondary" id="refreshBtn">Refresh</button>
+        <button type="button" class="secondary" id="exportJsonBtn">Download JSON</button>
+        <button type="button" class="secondary" id="exportCsvBtn">Download CSV</button>
+        <a class="btn secondary" href="spm-math.html">Student answer sheet</a>
+        <a class="btn secondary" id="backupInboxLink" href="#" target="_blank" rel="noopener">Backup inbox</a>
+      </div>
+      <div class="err" id="loadErr"></div>
+      <div id="list"></div>
+    </section>
+  </main>
+  <script src="math-config.js?v=20261113a"></script>
+  <script src="math-items.js?v=20261113a"></script>
+  <script src="math-teacher.js?v=20261113a"></script>
+</body>
+</html>
