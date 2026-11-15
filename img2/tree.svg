@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" font-family="Source Sans 3, Segoe UI, sans-serif" font-size="14">
+  <rect width="520" height="300" fill="#fff"/>
+  <circle cx="40" cy="150" r="5" fill="#1B3A4B"/>
+  <!-- A / A' -->
+  <line x1="45" y1="150" x2="150" y2="60" stroke="#1C1C1C"/>
+  <line x1="45" y1="150" x2="150" y2="240" stroke="#1C1C1C"/>
+  <text x="70" y="90" font-size="13">3/7</text>
+  <text x="70" y="220" font-size="13" fill="#5B6770">?</text>
+  <text x="168" y="55" font-weight="700">A</text>
+  <text x="168" y="245" font-weight="700">A′</text>
+  <circle cx="160" cy="50" r="4" fill="#2A6F6F"/>
+  <circle cx="160" cy="240" r="4" fill="#2A6F6F"/>
+  <!-- second level -->
+  <line x1="170" y1="50" x2="300" y2="18" stroke="#1C1C1C"/>
+  <line x1="170" y1="50" x2="300" y2="90" stroke="#1C1C1C"/>
+  <text x="210" y="22" font-size="13">2/5</text>
+  <text x="210" y="88" font-size="13" fill="#5B6770">?</text>
+  <text x="318" y="22" font-weight="700">B</text>
+  <text x="318" y="94" font-weight="700">B′</text>
+  <line x1="170" y1="240" x2="300" y2="208" stroke="#1C1C1C"/>
+  <line x1="170" y1="240" x2="300" y2="280" stroke="#1C1C1C"/>
+  <text x="210" y="212" font-size="13">2/5</text>
+  <text x="210" y="278" font-size="13" fill="#5B6770">?</text>
+  <text x="318" y="212" font-weight="700">B</text>
+  <text x="318" y="284" font-weight="700">B′</text>
+  <text x="260" y="298" text-anchor="middle" font-size="12">Diagram 4  (complete the missing probabilities on paper)</text>
+</svg>

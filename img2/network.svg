@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" font-family="Source Sans 3, Segoe UI, sans-serif" font-size="14">
+  <rect width="520" height="300" fill="#fff"/>
+  <!-- positions: A(70,60) B(230,60) C(400,60) D(70,230) E(230,230) F(400,230) -->
+  <g stroke="#1C1C1C" stroke-width="1.8" fill="none">
+    <line x1="70" y1="60" x2="230" y2="60"/>
+    <line x1="230" y1="60" x2="400" y2="60"/>
+    <line x1="70" y1="60" x2="70" y2="230"/>
+    <line x1="230" y1="60" x2="230" y2="230"/>
+    <line x1="400" y1="60" x2="400" y2="230"/>
+    <line x1="70" y1="230" x2="230" y2="230"/>
+    <line x1="230" y1="230" x2="400" y2="230"/>
+    <line x1="70" y1="60" x2="230" y2="230"/>
+  </g>
+  <!-- weights -->
+  <text x="150" y="50" text-anchor="middle" font-weight="700">4 km</text>
+  <text x="315" y="50" text-anchor="middle" font-weight="700">7 km</text>
+  <text x="52" y="155" text-anchor="end" font-weight="700">6 km</text>
+  <text x="242" y="155" font-weight="700">5 km</text>
+  <text x="412" y="155" font-weight="700">8 km</text>
+  <text x="150" y="250" text-anchor="middle" font-weight="700">10 km</text>
+  <text x="315" y="250" text-anchor="middle" font-weight="700">3 km</text>
+  <text x="120" y="160" text-anchor="middle" font-weight="700">11 km</text>
+  <!-- nodes -->
+  <g font-weight="700" font-size="16" text-anchor="middle">
+    <circle cx="70" cy="60" r="16" fill="#1B3A4B"/><text x="70" y="66" fill="#fff">A</text>
+    <circle cx="230" cy="60" r="16" fill="#1B3A4B"/><text x="230" y="66" fill="#fff">B</text>
+    <circle cx="400" cy="60" r="16" fill="#1B3A4B"/><text x="400" y="66" fill="#fff">C</text>
+    <circle cx="70" cy="230" r="16" fill="#1B3A4B"/><text x="70" y="236" fill="#fff">D</text>
+    <circle cx="230" cy="230" r="16" fill="#1B3A4B"/><text x="230" y="236" fill="#fff">E</text>
+    <circle cx="400" cy="230" r="16" fill="#1B3A4B"/><text x="400" y="236" fill="#fff">F</text>
+  </g>
+  <text x="260" y="290" text-anchor="middle" font-size="12">Diagram 5</text>
+</svg>

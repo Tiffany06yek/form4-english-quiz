@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 280" font-family="Source Sans 3, Segoe UI, sans-serif" font-size="13">
+  <rect width="480" height="280" fill="#fff"/>
+  <!-- isometric-ish: trapezoidal prism with half cylinder on the near 14 cm face -->
+  <!-- front trapezium: top 5cm (short), bottom 9cm, height t -->
+  <!-- depth 14 cm going back-right -->
+  <!-- half cylinder of diameter 14 attached to the right/front depth edge? 
+       Better: half cylinder on the TOP or on the left face of length 14.
+       Draw: trapezium in front (bottom 9, top 5, height t), extruded back 14cm,
+       half-cylinder sitting on the rectangular 14cm x t side (the right vertical side).
+       Right side height t, depth 14, diameter 14 so half-disk is on the bottom or the face is 14 wide.
+  -->
+  <!-- Coordinates:
+       Front bottom-left A(80,210), front bottom-right B(200,210)  [9cm bottom, 120px]
+       Front top-right C(174,90), front top-left D(114,90) [5cm top = 66.7px, I'll use 80px? Keep proportions: 5:9 = 66.7:120]
+       Use 5:9 exactly: top width 66.7, start at 80+(120-66.7)/2=106.65
+  -->
+  <g stroke="#1B3A4B" stroke-width="1.8" fill="#E8F0F4">
+    <!-- back trapezium offset (90,-40) -->
+    <polygon points="170,170 290,170 264,50 196,50" fill="#d9e6ec" />
+    <!-- top face -->
+    <polygon points="107,90 173,90 263,50 197,50" fill="#cfe0e6"/>
+    <!-- right face (this is 14 cm deep, height t) -->
+    <polygon points="200,210 290,170 264,50 173,90" fill="#b7cfd6"/>
+    <!-- front trapezium -->
+    <polygon points="80,210 200,210 173,90 107,90" fill="#E8F0F4"/>
+  </g>
+  <!-- half cylinder attached to the right face: diameter 14 along the depth (200,210) to (290,170), radius going outward to the right -->
+  <!-- approximate ellipse half -->
+  <path d="M200,210 Q 255,255 290,170 L264,50 Q 230,95 173,90 Z" fill="#F8F1DE" stroke="#1B3A4B" stroke-width="1.8"/>
+  <!-- hidden edges dashed -->
+  <g stroke="#1C1C1C" stroke-width="1.1" stroke-dasharray="4 3" fill="none">
+    <line x1="80" y1="210" x2="170" y2="170"/>
+  </g>
+  <!-- labels -->
+  <text x="140" y="228" text-anchor="middle">9 cm</text>
+  <text x="140" y="82" text-anchor="middle">5 cm</text>
+  <text x="88" y="155" text-anchor="end"><tspan font-style="italic">t</tspan> cm</text>
+  <text x="250" y="200">14 cm</text>
+  <text x="250" y="120" font-size="12">half-cylinder</text>
+  <text x="240" y="268" text-anchor="middle" font-size="12">Diagram 7</text>
+</svg>

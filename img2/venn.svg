@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 300" font-family="Source Sans 3, Segoe UI, sans-serif" font-size="14">
+  <rect width="460" height="300" fill="#fff"/>
+  <rect x="20" y="16" width="420" height="260" fill="none" stroke="#1C1C1C" stroke-width="1.2"/>
+  <text x="36" y="36" font-size="18" font-style="italic">ξ</text>
+  <circle cx="175" cy="125" r="80" fill="none" stroke="#1B3A4B" stroke-width="2"/>
+  <circle cx="285" cy="125" r="80" fill="none" stroke="#1B3A4B" stroke-width="2"/>
+  <circle cx="230" cy="200" r="80" fill="none" stroke="#1B3A4B" stroke-width="2"/>
+  <text x="120" y="90" font-weight="700">S</text>
+  <text x="330" y="90" font-weight="700">G</text>
+  <text x="222" y="268" font-weight="700">M</text>
+  <!-- S only -->
+  <text x="125" y="125" text-anchor="middle">12</text>
+  <!-- S∩G not M -->
+  <text x="230" y="100" text-anchor="middle">4</text>
+  <!-- G only unknown -->
+  <text x="335" y="125" text-anchor="middle" fill="#5B6770">?</text>
+  <!-- S∩M not G -->
+  <text x="160" y="195" text-anchor="middle">8</text>
+  <!-- center all three unknown -->
+  <text x="230" y="165" text-anchor="middle" fill="#5B6770">?</text>
+  <!-- G∩M not S -->
+  <text x="300" y="195" text-anchor="middle">2</text>
+  <!-- M only unknown -->
+  <text x="230" y="245" text-anchor="middle" fill="#5B6770">?</text>
+  <text x="230" y="292" text-anchor="middle" font-size="12">Diagram 3</text>
+</svg>

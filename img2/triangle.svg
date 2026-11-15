@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 240" font-family="Source Sans 3, Segoe UI, sans-serif" font-size="14">
+  <rect width="420" height="240" fill="#fff"/>
+  <polygon points="60,200 300,200 300,60" fill="#E8F0F4" stroke="#1B3A4B" stroke-width="2"/>
+  <!-- right angle -->
+  <path d="M280,200 L280,180 L300,180" fill="none" stroke="#1B3A4B" stroke-width="1.4"/>
+  <text x="175" y="218" text-anchor="middle">(8<tspan font-style="italic">x</tspan> − 80) m</text>
+  <text x="328" y="140" >(5<tspan font-style="italic">x</tspan>) m</text>
+  <text x="200" y="235" text-anchor="middle" font-size="12">Diagram 2</text>
+</svg>
