@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Form 4 English DLP — Mini Writing (Email)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20261125a" />
+  <style>
+    textarea#writing { min-height: 280px; }
+    .confirmbox { background: var(--navy); color: #fff; border-radius: var(--radius); padding: 1.2rem 1.25rem; text-align: center; margin-bottom: 1rem; }
+    .confirmbox .big { font-size: 2rem; font-weight: 700; letter-spacing: -0.03em; }
+    .confirmbox p { margin: 0.3rem 0 0; opacity: 0.92; }
+    .check-list { list-style: none; margin: 0.4rem 0 1rem; padding: 0; }
+    .check-list li { display: grid; grid-template-columns: auto 1fr; gap: 0.55rem 0.75rem; padding: 0.55rem 0; border-bottom: 1px solid var(--line); font-size: 0.95rem; align-items: start; }
+    .check-note { color: var(--muted); font-size: 0.9rem; margin: 0 0 0.5rem; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <strong>FORM 4 ENGLISH DLP</strong>
+    <span>Mini Writing — Email</span>
+  </header>
+  <main class="wrap">
+    <h1>Mini Writing — Short email</h1>
+    <p class="sub">SPM Paper 2 Part 1 style · 80–100 words · Marked by your teacher · About 20–25 minutes</p>
+
+    <form id="quiz" autocomplete="off">
+      <div class="card">
+        <label class="field" for="studentName">Student name</label>
+        <input type="text" id="studentName" name="studentName" required placeholder="Type your name" maxlength="80" />
+      </div>
+
+      <div class="banner navy">
+        <span>Mini writing — Short email</span>
+        <span class="right">SPM Paper 2 Part 1 style · 80–100 words · Marked by your teacher</span>
+      </div>
+      <p>You have received the email below from your friend, Daniel, who has just started Form 4. Write an email to Daniel in <b>80–100 words</b>.</p>
+
+      <div class="email-box">
+        <h3>Email from Daniel</h3>
+        <p>Hi,</p>
+        <p>I’ve just started Form 4 and everything feels so different! There are so many subjects and I’m not sure how to organise my time. Any advice? Also, should I join a club?</p>
+        <p>Write back soon.</p>
+        <p><b>Daniel</b></p>
+      </div>
+
+      <p><b>In your email, you should:</b></p>
+      <ul class="notes">
+        <li>tell him how you felt when you started Form 4</li>
+        <li>give him <b>two</b> useful tips for doing well this year</li>
+        <li>suggest one after-school activity he might enjoy</li>
+        <li>invite him to a study session this weekend</li>
+      </ul>
+
+      <label class="field" for="writing">Write your email here</label>
+      <textarea id="writing" name="writing" required placeholder="Hi Daniel, …"></textarea>
+      <p class="wordcount" id="wordCount">Word count: 0 &nbsp; (aim for 80–100 words)</p>
+
+      <div class="err" id="formError"></div>
+      <div class="actions">
+        <button type="submit" id="submitBtn">Submit</button>
+      </div>
+    </form>
+
+    <section class="results" id="results" aria-live="polite"></section>
+
+    <footer class="site">
+      Form 4 English DLP · Mini writing practice · 25 November 2026
+    </footer>
+  </main>
+  <script src="english-email-config.js?v=20261125a"></script>
+  <script src="english-email.js?v=20261125a"></script>
+</body>
+</html>
