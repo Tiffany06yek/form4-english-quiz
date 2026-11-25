@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Form 4 English DLP — SPM Writing Practice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20261125w" />
+  <style>
+    body.writing .wrap { max-width: 1100px; }
+    .q-block { margin: 0 0 1.6rem; }
+    .q-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 0.9rem 1.1rem;
+      align-items: start;
+    }
+    .q-stem { grid-column: 1; }
+    .q-write { grid-column: 1; }
+    .outline-box {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      background: #F8F1DE;
+      border: 1px solid #E0C56A;
+      border-left: 4px solid var(--gold);
+      border-radius: 10px;
+      padding: 0.7rem 0.8rem 0.9rem;
+      position: sticky;
+      top: 4.2rem;
+    }
+    .outline-box h3 {
+      margin: 0 0 0.35rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #6B4E00;
+    }
+    .outline-box .hint {
+      margin: 0 0 0.55rem;
+      font-size: 0.82rem;
+      color: #6B4E00;
+    }
+    .outline-box h4 {
+      margin: 0.65rem 0 0.2rem;
+      font-size: 0.88rem;
+      color: var(--navy);
+    }
+    .outline-box ul { margin: 0; padding-left: 1.05rem; }
+    .outline-box li { margin: 0.18rem 0; font-size: 0.86rem; }
+    .outline-box .starter { font-family: var(--serif); font-style: italic; color: #3d4a52; }
+    .mail-head {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.6rem 0 0.8rem;
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .mail-head th, .mail-head td {
+      border-bottom: 1px solid var(--line);
+      padding: 0.45rem 0.7rem;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+    .mail-head th {
+      width: 6.2rem;
+      background: var(--teal-soft);
+      color: var(--navy);
+      font-weight: 700;
+    }
+    .mail-head tr:last-child th, .mail-head tr:last-child td { border-bottom: 0; }
+    textarea.writing { min-height: 240px; }
+    .confirmbox { background: var(--navy); color: #fff; border-radius: var(--radius); padding: 1.2rem 1.25rem; text-align: center; margin-bottom: 1rem; }
+    .confirmbox .big { font-size: 2rem; font-weight: 700; letter-spacing: -0.03em; }
+    .confirmbox p { margin: 0.3rem 0 0; opacity: 0.92; }
+    .source-tag {
+      display: inline-block;
+      background: var(--teal-soft);
+      color: var(--navy);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      margin-left: 0.35rem;
+      vertical-align: middle;
+    }
+    @media (max-width: 800px) {
+      .q-layout { grid-template-columns: 1fr; }
+      .outline-box { grid-column: 1; grid-row: 2; position: static; }
+      .q-stem { grid-row: 1; }
+      .q-write { grid-row: 3; }
+    }
+  </style>
+</head>
+<body class="writing">
+  <header class="topbar">
+    <strong>FORM 4 ENGLISH DLP</strong>
+    <span>SPM Writing Practice</span>
+  </header>
+  <main class="wrap">
+    <h1>SPM Writing Practice</h1>
+    <p class="sub">Four questions from real SPM 1119/2 papers · Two emails (about 80 words) and two guided essays (125–150 words) · Marked by your teacher · About 80–90 minutes</p>
+
+    <form id="quiz" autocomplete="off">
+      <div class="card">
+        <label class="field" for="studentName">Student name</label>
+        <input type="text" id="studentName" name="studentName" required placeholder="Type your name" maxlength="80" />
+      </div>
+
+      <!-- Q1 -->
+      <div class="q-block" id="q1block">
+        <div class="banner navy">
+          <span>Question 1 &nbsp; Short email</span>
+          <span class="right">SPM 2024, Paper 2, Part 1 · about 80 words · 20 marks</span>
+        </div>
+        <div class="q-layout">
+          <div class="q-stem">
+            <p><span class="source-tag">SPM 2024, Paper 2, Part 1</span></p>
+            <p><i>You <b>must</b> answer this question.</i></p>
+            <p>You received an email from your friend, Ben, who is planning to buy a new watch.</p>
+            <div class="email-box">
+              <p><i>Hi there,</i></p>
+              <p><i>I think it’s time I got myself a new watch. I know you just bought a new one. Why did you decide to buy it? How much did you pay for it? Do you think it’s better to buy the watch online or from a shop? Why?</i></p>
+              <p><i>Bye!</i></p>
+              <p><i>Ben</i></p>
+            </div>
+            <p><i>Write an email to your friend in about <b>80 words</b> in the space provided.</i></p>
+            <table class="mail-head">
+              <tr><th>To:</th><td>ben@email.com</td></tr>
+              <tr><th>Subject:</th><td>A new watch</td></tr>
+            </table>
+          </div>
+          <aside class="outline-box">
+            <h3>Writing outline</h3>
+            <p class="hint">Notes only — join them into your own sentences. Do not copy a whole answer.</p>
+            <h4>Greeting</h4>
+            <ul>
+              <li>Hi Ben, / Hey Ben,</li>
+            </ul>
+            <h4>Opening</h4>
+            <ul>
+              <li>thanks / your email / glad you asked</li>
+              <li class="starter">Thanks for… / I’m glad…</li>
+            </ul>
+            <h4>Why you bought it</h4>
+            <ul>
+              <li>old watch – stopped working / always late</li>
+              <li>or: waterproof / look neat for school</li>
+              <li class="starter">I decided to buy it because…</li>
+            </ul>
+            <h4>Price</h4>
+            <ul>
+              <li>RM ___ / sale / last month</li>
+              <li class="starter">I paid… / It cost me…</li>
+            </ul>
+            <h4>Online or shop + why</h4>
+            <ul>
+              <li>shop – try it on / see the quality</li>
+              <li>or: online – cheaper / more choices</li>
+              <li>short reason; optional: 1 small example</li>
+              <li class="starter">I think it is better to buy it… because…</li>
+            </ul>
+            <h4>Closing</h4>
+            <ul>
+              <li>Hope this helps. / That’s all from me.</li>
+              <li>Bye! / Write back soon.</li>
+            </ul>
+          </aside>
+          <div class="q-write">
+            <label class="field" for="writing1">Write your email here</label>
+            <textarea class="writing" id="writing1" name="writing1" required placeholder="Hi Ben, …"></textarea>
+            <p class="wordcount" id="wordCount1">Word count: 0 &nbsp; (aim for about 80 words)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="q-block" id="q2block">
+        <div class="banner navy">
+          <span>Question 2 &nbsp; Short email</span>
+          <span class="right">SPM 2022, Paper 2, Part 1 · about 80 words · 20 marks</span>
+        </div>
+        <div class="q-layout">
+          <div class="q-stem">
+            <p><span class="source-tag">SPM 2022, Paper 2, Part 1</span></p>
+            <p><i>You <b>must</b> answer this question.</i></p>
+            <p>You received an email from your friend, Diana who plans to help a classmate, Julia move into her new house.</p>
+            <div class="email-box">
+              <p><i>Hi,</i></p>
+              <p><i>Julia and her family are moving into their new house this Sunday. We should lend them a hand. Let’s go there together. Where should we meet and what time works best for you? I’m still thinking about how we can help them. Any ideas?</i></p>
+              <p><i>Should we bring anything?</i></p>
+              <p><i>Let me know what you think.</i></p>
+              <p><i>Diana</i></p>
+            </div>
+            <p><i>Write an email to your friend in about <b>80 words</b> in the space provided.</i></p>
+            <table class="mail-head">
+              <tr><th>To:</th><td>diana@email.com</td></tr>
+              <tr><th>Subject:</th><td>Let’s help Julia</td></tr>
+            </table>
+          </div>
+          <aside class="outline-box">
+            <h3>Writing outline</h3>
+            <p class="hint">Notes only — join them into your own sentences. Do not copy a whole answer.</p>
+            <h4>Greeting</h4>
+            <ul>
+              <li>Hi Diana,</li>
+            </ul>
+            <h4>Opening</h4>
+            <ul>
+              <li>agree to help / this Sunday</li>
+              <li class="starter">Yes, let’s help Julia…</li>
+            </ul>
+            <h4>Where and what time</h4>
+            <ul>
+              <li>place + time – school gate / her house / 8.30 a.m.</li>
+              <li class="starter">We can meet at… at…</li>
+            </ul>
+            <h4>How to help</h4>
+            <ul>
+              <li>2 simple jobs – carry boxes / wipe windows / pack / arrange furniture</li>
+              <li class="starter">I think we can… / We could also…</li>
+            </ul>
+            <h4>What to bring</h4>
+            <ul>
+              <li>1–2 things – newspapers / cleaning cloth / drinks / kuih</li>
+              <li class="starter">We should bring…</li>
+            </ul>
+            <h4>Closing</h4>
+            <ul>
+              <li>See you on Sunday! / Let me know if this works.</li>
+            </ul>
+          </aside>
+          <div class="q-write">
+            <label class="field" for="writing2">Write your email here</label>
+            <textarea class="writing" id="writing2" name="writing2" required placeholder="Hi Diana, …"></textarea>
+            <p class="wordcount" id="wordCount2">Word count: 0 &nbsp; (aim for about 80 words)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="q-block" id="q3block">
+        <div class="banner">
+          <span>Question 3 &nbsp; Guided essay</span>
+          <span class="right">SPM 2024, Paper 2, Part 2 · 125–150 words · 20 marks</span>
+        </div>
+        <div class="q-layout">
+          <div class="q-stem">
+            <p><span class="source-tag">SPM 2024, Paper 2, Part 2</span></p>
+            <p><i>You <b>must</b> answer this question.</i></p>
+            <p>Your class has been talking about music and its influence on teenagers. Your teacher has asked you to write an essay about it.</p>
+            <p><b>In your essay, you should:</b></p>
+            <ul class="notes">
+              <li>tell which type of music you like</li>
+              <li>say why you like that type of music</li>
+              <li>explain how important music is in your life</li>
+            </ul>
+            <p>Use <b>all</b> the notes above and give reasons for your point of view.</p>
+            <p>Write your essay in <b>125 – 150 words</b> in an appropriate style.</p>
+          </div>
+          <aside class="outline-box">
+            <h3>Writing outline</h3>
+            <p class="hint">Notes only — join them into your own sentences. Use all three points.</p>
+            <h4>Intro</h4>
+            <ul>
+              <li>topic + the type you like</li>
+              <li>pop / R&amp;B / rap / classical / Chinese songs / local singers</li>
+              <li class="starter">Many teenagers… / The type of music I like is…</li>
+            </ul>
+            <h4>Why you like it</h4>
+            <ul>
+              <li>2 reasons – easy to remember / lyrics / mood / after school</li>
+              <li class="starter">I like this type of music because… / It also…</li>
+            </ul>
+            <h4>How important in your life</h4>
+            <ul>
+              <li>2 everyday examples – revise / bus / kitchen / before a test</li>
+              <li class="starter">Music is important in my life because… / I listen to it when…</li>
+            </ul>
+            <h4>Conclusion</h4>
+            <ul>
+              <li>short wrap-up – no new point</li>
+              <li class="starter">All in all,… / Without music,…</li>
+            </ul>
+          </aside>
+          <div class="q-write">
+            <label class="field" for="writing3">Write your essay here</label>
+            <textarea class="writing" id="writing3" name="writing3" required></textarea>
+            <p class="wordcount" id="wordCount3">Word count: 0 &nbsp; (aim for 125–150 words)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="q-block" id="q4block">
+        <div class="banner">
+          <span>Question 4 &nbsp; Guided essay</span>
+          <span class="right">SPM 2021, Paper 2, Part 2 · 125–150 words · 20 marks</span>
+        </div>
+        <div class="q-layout">
+          <div class="q-stem">
+            <p><span class="source-tag">SPM 2021, Paper 2, Part 2</span></p>
+            <p><i>You <b>must</b> answer this question.</i></p>
+            <p>Your class has been discussing the ways people can show kindness to others and your teacher has asked you to write an essay on it.</p>
+            <p><b>In your essay, you should write about:</b></p>
+            <ul class="notes">
+              <li>an act of kindness you experienced</li>
+              <li>why we must be kind to others</li>
+              <li>how to encourage people to be kind</li>
+            </ul>
+            <p>Use <b>all</b> the notes above and give reasons for your point of view.</p>
+            <p>Write your essay in <b>125 – 150 words</b> in an appropriate style.</p>
+          </div>
+          <aside class="outline-box">
+            <h3>Writing outline</h3>
+            <p class="hint">Notes only — join them into your own sentences. Use all three points.</p>
+            <h4>Intro + the act of kindness</h4>
+            <ul>
+              <li>one short story – who / what / result</li>
+              <li>rain, umbrella, senior, bus stop / or your own story</li>
+              <li class="starter">An act of kindness I experienced was… / Last year,…</li>
+            </ul>
+            <h4>Why we must be kind</h4>
+            <ul>
+              <li>2 reasons – bad day / small action / comes back / warmer school</li>
+              <li class="starter">We must be kind because… / Kindness also…</li>
+            </ul>
+            <h4>How to encourage people</h4>
+            <ul>
+              <li>2 practical ideas – kindness week / thank people out loud / notice good deeds</li>
+              <li class="starter">To encourage people to be kind,… / We can also…</li>
+            </ul>
+            <h4>Conclusion</h4>
+            <ul>
+              <li>short close – everyone can / simple ways</li>
+              <li class="starter">In the end,… / Kindness does not have to be…</li>
+            </ul>
+          </aside>
+          <div class="q-write">
+            <label class="field" for="writing4">Write your essay here</label>
+            <textarea class="writing" id="writing4" name="writing4" required></textarea>
+            <p class="wordcount" id="wordCount4">Word count: 0 &nbsp; (aim for 125–150 words)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="err" id="formError"></div>
+      <div class="actions">
+        <button type="submit" id="submitBtn">Submit</button>
+      </div>
+    </form>
+
+    <section class="results" id="results" aria-live="polite"></section>
+
+    <footer class="site">
+      Form 4 English DLP · SPM writing practice · 25 November 2026
+    </footer>
+  </main>
+  <script src="spm-writing-config.js?v=20261125w"></script>
+  <script src="spm-writing.js?v=20261125w"></script>
+</body>
+</html>
